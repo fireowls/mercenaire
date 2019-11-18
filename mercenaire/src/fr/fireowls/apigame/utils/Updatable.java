@@ -1,4 +1,4 @@
-package fr.fireowls.mercenaire.utils;
+package fr.fireowls.apigame.utils;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 

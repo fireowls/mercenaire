@@ -1,7 +1,7 @@
 package fr.fireowls.mercenaire.scene;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import fr.fireowls.mercenaire.utils.Updatable;
+import fr.fireowls.apigame.utils.Updatable;
 
 import java.util.ArrayList;
 import java.util.List;

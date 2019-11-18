@@ -1,0 +1,19 @@
+{
+	"id": "grass",
+	"width": 16,
+	"height": 16,
+	"textures": [
+		{
+			"file": "grass-0.png",
+			"apparition": 0.8 
+		},
+		{
+			"file": "grass-1.png",
+			"apparition": 0.1 
+		},
+		{
+			"file": "grass-2.png",
+			"apparition": 0.1 
+		}
+	]
+}

@@ -4,7 +4,11 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import fr.fireowls.apigame.world.WorldFactory;
 import fr.fireowls.mercenaire.scene.SceneManager;
+
+import java.io.File;
 
 public class Mercenaire extends ApplicationAdapter {
 
@@ -16,6 +20,9 @@ public class Mercenaire extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		sceneManager = new SceneManager();
 		sceneManager.create();
+
+		WorldFactory factory = new WorldFactory(new File("worlds/myworld"));
+		factory.parse();
 	}
 
 	@Override
