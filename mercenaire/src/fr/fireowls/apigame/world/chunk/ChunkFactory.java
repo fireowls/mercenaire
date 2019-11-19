@@ -3,7 +3,7 @@ package fr.fireowls.apigame.world.chunk;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
-import fr.fireowls.apigame.utils.Factory;
+import fr.fireowls.apigame.utils.factory.Factory;
 import fr.fireowls.apigame.world.tile.Tile;
 import fr.fireowls.apigame.world.tile.TileType;
 

@@ -23,7 +23,6 @@ public class SceneManager implements Updatable {
         } catch (IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
         }
-        setScene(SceneType.MAIN_MENU);
     }
 
     public void setScene(SceneType scene) {
@@ -47,34 +46,42 @@ public class SceneManager implements Updatable {
 
     @Override
     public void create() {
-        scenes.get(index).setStatus(SceneStatus.RUNNING);
-        scenes.get(index).create();
+        if (index > -1) {
+            scenes.get(index).setStatus(SceneStatus.RUNNING);
+            scenes.get(index).create();
+        }
     }
 
     @Override
     public void update(float delta) {
-        if (!pause)
-            scenes.get(index).update(delta);
+        if (index > -1)
+            if (!pause)
+                scenes.get(index).update(delta);
     }
 
     @Override
     public void draw(SpriteBatch batch) {
-        if (!pause)
-            scenes.get(index).draw(batch);
+        if (index > -1)
+            if (!pause)
+                scenes.get(index).draw(batch);
     }
 
     @Override
     public void pause() {
-        scenes.get(index).setStatus(SceneStatus.PAUSED);
-        pause = true;
-        scenes.get(index).pause();
+        if (index > -1) {
+            scenes.get(index).setStatus(SceneStatus.PAUSED);
+            pause = true;
+            scenes.get(index).pause();
+        }
     }
 
     @Override
     public void resume() {
-        scenes.get(index).setStatus(SceneStatus.RUNNING);
-        pause = false;
-        scenes.get(index).resume();
+        if (index > 1) {
+            scenes.get(index).setStatus(SceneStatus.RUNNING);
+            pause = false;
+            scenes.get(index).resume();
+        }
     }
 
     @Override
@@ -83,7 +90,9 @@ public class SceneManager implements Updatable {
     }
 
     public void disposeCurrentScene() {
-        scenes.get(index).setStatus(SceneStatus.STOP);
-        scenes.get(index).dispose();
+        if (index > -1) {
+            scenes.get(index).setStatus(SceneStatus.STOP);
+            scenes.get(index).dispose();
+        }
     }
 }

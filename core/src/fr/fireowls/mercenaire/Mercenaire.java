@@ -5,10 +5,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import fr.fireowls.apigame.world.WorldFactory;
 import fr.fireowls.mercenaire.scene.SceneManager;
-
-import java.io.File;
+import fr.fireowls.mercenaire.scene.SceneType;
 
 public class Mercenaire extends ApplicationAdapter {
 
@@ -20,9 +18,7 @@ public class Mercenaire extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		sceneManager = new SceneManager();
 		sceneManager.create();
-
-		WorldFactory factory = new WorldFactory(new File("worlds/myworld"));
-		factory.parse();
+		sceneManager.setScene(SceneType.MAIN_MENU);
 	}
 
 	@Override
@@ -30,7 +26,9 @@ public class Mercenaire extends ApplicationAdapter {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		sceneManager.update(Gdx.graphics.getDeltaTime());
+		batch.begin();
 		sceneManager.draw(batch);
+		batch.end();
 	}
 	
 	@Override

@@ -1,16 +1,16 @@
 package fr.fireowls.apigame.world;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.JsonWriter;
-import fr.fireowls.apigame.utils.Factory;
+import fr.fireowls.apigame.utils.factory.Factory;
 import fr.fireowls.apigame.world.chunk.Chunk;
 import fr.fireowls.apigame.world.chunk.ChunkFactory;
 
 import java.io.File;
-import java.util.Arrays;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class WorldFactory extends Factory<World> {
 
@@ -43,10 +43,19 @@ public class WorldFactory extends Factory<World> {
 
     @Override
     public void save(World element) {
+        try {
+            FileWriter writer = new FileWriter(file);
+            JsonWriter json = new JsonWriter(writer);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         for (Chunk chunk : element.getChunks()) {
             ChunkFactory factory = new ChunkFactory(chunk.getFile());
             factory.save(chunk);
         }
+
     }
 }

@@ -1,4 +1,4 @@
-package fr.fireowls.apigame.utils;
+package fr.fireowls.apigame.utils.factory;
 
 import java.io.File;
 
