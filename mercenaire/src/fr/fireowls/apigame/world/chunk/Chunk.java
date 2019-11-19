@@ -3,18 +3,22 @@ package fr.fireowls.apigame.world.chunk;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import fr.fireowls.apigame.utils.Loader;
 import fr.fireowls.apigame.utils.Updatable;
+import fr.fireowls.apigame.world.World;
 import fr.fireowls.apigame.world.tile.Tile;
 
+import java.io.File;
 import java.util.Arrays;
 
 public class Chunk implements Updatable, Loader {
 
     public static final int CHUNK_SIZE = 8;
 
-    private boolean loaded;
-    private ChunkPosition position;
-
     private Tile[][] tiles;
+    private boolean loaded;
+
+    private ChunkPosition position;
+    private World world;
+    private File file;
 
     public Chunk() {
         tiles = new Tile[CHUNK_SIZE][CHUNK_SIZE];
@@ -51,7 +55,7 @@ public class Chunk implements Updatable, Loader {
     }
 
     public Tile getTile(int x, int y) {
-        return tiles[x][y];
+        return tiles[y][x];
     }
 
     public void setTile(Tile tile, int x, int y) {
@@ -74,5 +78,21 @@ public class Chunk implements Updatable, Loader {
 
     public void setPosition(ChunkPosition position) {
         this.position = position;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 }

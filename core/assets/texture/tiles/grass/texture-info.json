@@ -13,7 +13,12 @@
 		},
 		{
 			"file": "grass-2.png",
-			"apparition": 0.1 
+			"apparition": 0.1,
+			"animation": {
+				"start": 0,
+				"end": 2,
+				"delay": 5
+			}
 		}
 	]
 }

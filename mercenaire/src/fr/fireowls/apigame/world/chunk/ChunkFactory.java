@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import fr.fireowls.apigame.utils.Factory;
 import fr.fireowls.apigame.world.tile.Tile;
+import fr.fireowls.apigame.world.tile.TileType;
 
 import java.io.File;
 
@@ -27,19 +28,30 @@ public class ChunkFactory extends Factory<Chunk> {
         int y = Integer.parseInt(position[1]);
 
         chunk.setPosition(new ChunkPosition(x, y));
-
+        chunk.setFile(file);
+        x = y = -1;
         JsonValue tiles = value.get("tiles");
         for (JsonValue tile : tiles.iterator()) {
             Tile t = parseTile(tile);
 
+            y = x <= 0 ? y+1 : y;
+            x = x < Chunk.CHUNK_SIZE ? x+1 : 0;
+
+            t.setX(x);
+            t.setY(y);
+
+            t.setChunk(chunk);
+            t.setWorld(chunk.getWorld());
+
+            chunk.setTile(t, x, y);
         }
 
         return chunk;
     }
 
     private Tile parseTile(JsonValue value) {
-        Tile tile = new Tile();
-
+        TileType type = TileType.valueOf(value.getString("type"));
+        Tile tile = new Tile(type);
         return tile;
     }
 

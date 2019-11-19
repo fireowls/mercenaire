@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.JsonWriter;
 import fr.fireowls.apigame.utils.Factory;
 import fr.fireowls.apigame.world.chunk.Chunk;
 import fr.fireowls.apigame.world.chunk.ChunkFactory;
@@ -33,6 +34,7 @@ public class WorldFactory extends Factory<World> {
         for (File chunkFile : new File(file.getPath()+"/chunks").listFiles()) {
             ChunkFactory chunkFactory = new ChunkFactory(chunkFile);
             Chunk chunk = chunkFactory.parse();
+            chunk.setWorld(world);
             world.addChunk(chunk);
         }
 
@@ -42,5 +44,9 @@ public class WorldFactory extends Factory<World> {
     @Override
     public void save(World element) {
 
+        for (Chunk chunk : element.getChunks()) {
+            ChunkFactory factory = new ChunkFactory(chunk.getFile());
+            factory.save(chunk);
+        }
     }
 }
