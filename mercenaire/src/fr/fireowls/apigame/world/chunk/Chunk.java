@@ -1,7 +1,6 @@
 package fr.fireowls.apigame.world.chunk;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import fr.fireowls.apigame.utils.Loader;
 import fr.fireowls.apigame.utils.Updatable;
 import fr.fireowls.apigame.world.World;
 import fr.fireowls.apigame.world.tile.Tile;
