@@ -1,4 +1,4 @@
-package fr.fireowls.apigame.utils;
+package fr.fireowls.apigame.utils.game;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -39,11 +39,5 @@ public interface Updatable {
      * Quand l'objet est detruit
      */
     void dispose();
-
-    /**
-     * renvoie true si l'objets est en train d'être rendu (si la fonction update est appellé a chaque ticks)
-     * @return
-     */
-    boolean isRendering();
 
 }

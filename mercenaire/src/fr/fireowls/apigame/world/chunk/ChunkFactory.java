@@ -5,7 +5,6 @@ import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import fr.fireowls.apigame.utils.factory.Factory;
 import fr.fireowls.apigame.world.tile.Tile;
-import fr.fireowls.apigame.world.tile.TileType;
 
 import java.io.File;
 

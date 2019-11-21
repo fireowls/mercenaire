@@ -1,95 +1,43 @@
 package fr.fireowls.apigame.world.tile;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import fr.fireowls.apigame.utils.Location;
-import fr.fireowls.apigame.utils.Updatable;
-import fr.fireowls.apigame.world.World;
-import fr.fireowls.apigame.world.chunk.Chunk;
+import fr.fireowls.apigame.utils.game.GameObject;
+import fr.fireowls.apigame.utils.textures.SpriteSheet;
 
-public class Tile implements Updatable {
+import java.io.File;
 
-    private Sprite sprite;
-    private TileType type;
-    private Chunk chunk;
-    private World world;
+public abstract class Tile extends GameObject {
 
-    private int x;
-    private int y;
+    public final static int TILE_SIZE = 128;
 
-    private Location location;
+    private String id;
+    private Tiles type;
+    private File resources;
 
-    public Tile(TileType type) {
+    private SpriteSheet spriteSheet;
+
+    public Tile(String id, Tiles type, File resources) {
+        this.id = id;
         this.type = type;
-    }
+        this.resources = resources;
 
-    @Override
-    public void create() {
 
-    }
-
-    @Override
-    public void update(float delta) {
 
     }
 
-    @Override
-    public void draw(SpriteBatch batch) {
 
+    public String getId() {
+        return id;
     }
 
-    @Override
-    public void pause() {
-
+    public void setResources(File resources) {
+        this.resources = resources;
     }
 
-    @Override
-    public void resume() {
-
+    public File getResources() {
+        return resources;
     }
 
-    @Override
-    public void dispose() {
-
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public Chunk getChunk() {
-        return chunk;
-    }
-
-    public void setChunk(Chunk chunk) {
-        this.chunk = chunk;
-    }
-
-    public World getWorld() {
-        return world;
-    }
-
-    public void setWorld(World world) {
-        this.world = world;
+    public Tiles getType() {
+        return type;
     }
 }

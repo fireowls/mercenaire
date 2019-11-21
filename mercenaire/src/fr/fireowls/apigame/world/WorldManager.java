@@ -1,7 +1,7 @@
 package fr.fireowls.apigame.world;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import fr.fireowls.apigame.utils.Updatable;
+import fr.fireowls.apigame.utils.game.Updatable;
 
 import java.util.ArrayList;
 import java.util.List;

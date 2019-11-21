@@ -1,7 +1,4 @@
 package fr.fireowls.apigame.world.tile;
 
-public enum TileType {
-
-
-
+public class GrassTile extends Tile {
 }
