@@ -18,9 +18,16 @@ public class SpriteSheet {
     private int width;
     private int height;
 
+    private int selectedTexture;
+
     private List<TextureInfo> textureInfos;
+    private float animationClock;
+
 
     public SpriteSheet(File resources) {
+
+        this.selectedTexture = 0;
+        this.animationClock = 0;
 
         this.textureInfos = new ArrayList<>();
 
@@ -39,7 +46,7 @@ public class SpriteSheet {
 
             String file = textureValue.getString("file");
             double frequency = textureValue.getDouble("frequency");
-            Texture texture = new Texture(file);
+            Texture texture = new Texture(Gdx.files.internal(resources.getParent() + "/" + file));
 
             TextureRegion[][] region = TextureRegion.split(texture, width, height);
 
@@ -51,12 +58,37 @@ public class SpriteSheet {
                 int firstFrame = animationValue.getInt("first-frame");
                 int lastFrame = animationValue.getInt("last-frame");
                 String playMode = animationValue.getString("play-mode");
-                textureInfo.setAnimation(new Animation<TextureRegion>((float) delay, Arrays.copyOfRange(textureInfo.getFrames(), firstFrame, lastFrame)));
+                textureInfo.setAnimation(new Animation<TextureRegion>((float) delay, Arrays.copyOfRange(textureInfo.getFrames(), firstFrame, lastFrame + 1)));
                 textureInfo.getAnimation().setPlayMode(Animation.PlayMode.valueOf(playMode));
             }
+            textureInfos.add(textureInfo);
 
         }
 
+        double selected = Math.random();
+        double last = 0;
+        for (int i = 0 ; i < textureInfos.size() ; i++) {
+            if (selected >= last && selected <= last + textureInfos.get(i).getFrequency()) {
+                selectedTexture = i;
+                return;
+            }
+            last += textureInfos.get(i).getFrequency();
+        }
+
+    }
+
+    public void setSelectedTexture(int selectedTexture) {
+        this.selectedTexture = selectedTexture;
+    }
+
+    public void update(float delta) {
+        this.animationClock += delta;
+    }
+
+    public TextureRegion getTexture() {
+        return this.textureInfos.get(selectedTexture).getAnimation() != null ?
+                this.textureInfos.get(selectedTexture).getAnimation().getKeyFrame(animationClock) :
+                new TextureRegion(this.textureInfos.get(selectedTexture).getTexture());
     }
 
     public int getHeight() {

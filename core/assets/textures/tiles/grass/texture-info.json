@@ -4,15 +4,15 @@
 	"textures": [
 		{
 			"file": "grass-0.png",
-			"frequency": 0
+			"frequency": 0.3
 		},
 		{
 			"file": "grass-1.png",
-			"frequency": 0
+			"frequency": 0.4
 		},
 		{
 			"file": "grass-2.png",
-			"frequency": 1,
+			"frequency": 0.3,
 			"animation": {
 				"delay": 0.5,
 				"first-frame": 0,
