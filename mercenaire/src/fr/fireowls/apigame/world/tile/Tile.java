@@ -18,13 +18,16 @@ public abstract class Tile extends GameObject {
     private SpriteSheet spriteSheet;
     private Location location;
 
+    public Tile(File file) {
+
+    }
+
     public Tile(Tiles type, Location location) {
         this.id = type.getId();
         this.type = type;
         this.location = location;
         this.resources = type.getResourcesFile();
         this.spriteSheet = new SpriteSheet(resources);
-
     }
 
     @Override
