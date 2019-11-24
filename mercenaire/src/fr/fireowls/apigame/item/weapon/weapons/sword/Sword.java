@@ -1,0 +1,22 @@
+package fr.fireowls.apigame.item.weapon.weapons.sword;
+
+import fr.fireowls.apigame.item.Rarity;
+import fr.fireowls.apigame.item.weapon.Weapon;
+import fr.fireowls.apigame.item.weapon.WeaponType;
+
+public class Sword extends Weapon {
+
+    protected SwordType type;
+
+    /**
+     * Constructeur d'arme
+     *
+     * @param rarity est la raretée de l'arme
+     * @param type   est le type de l'arme
+     * @param damage est les dégâts causé par l'arme
+     */
+    public Sword(Rarity rarity, SwordType type, double damage) {
+        super(rarity, WeaponType.SWORD, damage);
+        this.type = type;
+    }
+}

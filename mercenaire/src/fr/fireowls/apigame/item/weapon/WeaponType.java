@@ -1,6 +1,8 @@
 package fr.fireowls.apigame.item.weapon;
 
-import fr.fireowls.apigame.item.weapon.weap.*;
+import fr.fireowls.apigame.item.weapon.weapons.*;
+import fr.fireowls.apigame.item.weapon.weapons.projectile.Projectile;
+import fr.fireowls.apigame.item.weapon.weapons.sword.Sword;
 
 /**
  * @author MrKeesLer
@@ -9,13 +11,17 @@ import fr.fireowls.apigame.item.weapon.weap.*;
  */
 public enum WeaponType {
     /**
-     * Epée en pierre
+     * Epée
      */
-    STONESWORD(StoneSword.class),
+    SWORD(Sword.class),
+    /**
+     * Projectile
+     */
+    PROJECTILE(Projectile.class),
     /**
      * Patte de tigre à dent de sapin
      */
-    TIGRE_PAW(TigrePaw.class);
+    TIGERPAW(TigerPaw.class);
 
     private Class<? extends Weapon> c;
 

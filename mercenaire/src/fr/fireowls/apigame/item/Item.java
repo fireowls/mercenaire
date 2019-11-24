@@ -1,6 +1,6 @@
 package fr.fireowls.apigame.item;
 
-import fr.fireowls.apigame.item.weapon.weap.StoneSword;
+import fr.fireowls.apigame.item.equipment.armor.belt.belts.IronBelt;
 
 /**
  * @author MrKeesLer
@@ -19,5 +19,9 @@ public class Item {
     public Item(ItemType type,Rarity rarity){
         this.type = type;
         this.rarity = rarity;
+    }
+
+    public String toString(){
+        return this.getClass().getSimpleName()+"[rarity : "+rarity.toString()+"]";
     }
 }

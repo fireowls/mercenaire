@@ -3,11 +3,12 @@ package fr.fireowls.apigame.item.equipment.quiver;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.equipment.Equipment;
 import fr.fireowls.apigame.item.equipment.EquipmentType;
+import fr.fireowls.apigame.item.weapon.weapons.projectile.Projectile;
 
 public class Quiver extends Equipment {
 
     protected QuiverType type;
-    protected int slot;
+    protected Projectile[] slots;
 
     /**
      * Constructeur d'item
@@ -18,6 +19,30 @@ public class Quiver extends Equipment {
     public Quiver(Rarity rarity,QuiverType type,int slot) {
         super(EquipmentType.QUIVER, rarity);
         this.type = type;
-        this.slot = slot;
+        this.slots = new Projectile[slot];
+    }
+
+    public boolean addProjectile(Projectile... projectiles){
+        if(availableSlot() == 0 || availableSlot()-projectiles.length < 0) return false;
+        else {
+            for(int j = 0; j < projectiles.length; j++){
+                boolean done = false;
+                for(int i = 0; i < this.slots.length && !done; i++){
+                    if(this.slots[i] == null){
+                        this.slots[i] = projectiles[j];
+                        done = true;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public int availableSlot(){
+        int slot = 0;
+        for(int i = 0 ; i < this.slots.length; i++){
+            if(this.slots[i] == null) slot++;
+        }
+        return slot;
     }
 }
