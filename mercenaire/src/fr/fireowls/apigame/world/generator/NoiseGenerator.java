@@ -1,8 +1,8 @@
 package fr.fireowls.apigame.world.generator;
 
-public class PerlinNoise {
+public class NoiseGenerator {
 
-    public PerlinNoise() {
+    public NoiseGenerator() {
 
     }
 

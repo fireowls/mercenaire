@@ -8,10 +8,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class World extends GameObject {
 
-    public static final long DEFAULT_WORLD_SIZE = 300_000_000L;
+    public static final int DEFAULT_WORLD_SIZE = 300_000_000;
 
     private String name;
     private String seed;
@@ -28,7 +27,6 @@ public class World extends GameObject {
         this.seed = seed;
         this.chunks = chunks;
         this.file = new File("worlds/" + name);
-
     }
 
     @Override
