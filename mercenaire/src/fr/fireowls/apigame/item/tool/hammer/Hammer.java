@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.tool.hammer;
 
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.tool.Tool;
 import fr.fireowls.apigame.item.tool.ToolType;
@@ -14,8 +15,8 @@ public class Hammer extends Tool {
      * @param type   est le type de l'item (Weapon, Tool, Material, Consumable ou Equipment)
      * @param rarity est la rareté de l'item
      */
-    public Hammer(HammerType type, Rarity rarity) {
-        super(ToolType.HAMMER, rarity);
+    public Hammer(HammerType type, Rarity rarity, ItemMeta meta) {
+        super(ToolType.HAMMER, rarity,meta);
         this.type = type;
     }
 }

@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.equipment.armor.helmet.helmets;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.equipment.armor.helmet.Helmet;
@@ -11,7 +12,7 @@ public class LeatherHelmet extends Helmet implements Craftable, Sellable {
      * Constructeur d'item
      */
     public LeatherHelmet() {
-        super(Rarity.COMMON, HelmetType.LEATHERHELMET);
+        super(Rarity.COMMON, HelmetType.LEATHERHELMET,new ItemMeta("leatherHelmet.json"));
     }
 
     @Override

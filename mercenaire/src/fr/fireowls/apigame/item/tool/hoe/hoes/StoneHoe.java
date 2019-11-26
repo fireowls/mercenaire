@@ -1,8 +1,6 @@
 package fr.fireowls.apigame.item.tool.hoe.hoes;
 
-import fr.fireowls.apigame.item.Craftable;
-import fr.fireowls.apigame.item.Rarity;
-import fr.fireowls.apigame.item.Sellable;
+import fr.fireowls.apigame.item.*;
 import fr.fireowls.apigame.item.tool.hoe.Hoe;
 import fr.fireowls.apigame.item.tool.hoe.HoeType;
 
@@ -11,7 +9,7 @@ public class StoneHoe extends Hoe implements Craftable, Sellable {
      * Constructeur d'item
      */
     public StoneHoe() {
-        super(HoeType.STONEHOE, Rarity.COMMON);
+        super(HoeType.STONEHOE, Rarity.COMMON,new ItemMeta("stoneHoe.json"));
     }
 
     @Override

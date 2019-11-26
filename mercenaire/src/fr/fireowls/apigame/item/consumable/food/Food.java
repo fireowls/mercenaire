@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.consumable.food;
 
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.consumable.Consume;
 import fr.fireowls.apigame.item.consumable.ConsumeType;
@@ -17,8 +18,8 @@ public class Food extends Consume {
      *
      * @param rarity est la rareté de l'item
      */
-    public Food(Rarity rarity,FoodType type,int amount) {
-        super(rarity, ConsumeType.FOOD);
+    public Food(Rarity rarity,FoodType type,int amount, ItemMeta meta) {
+        super(rarity, ConsumeType.FOOD,meta);
         this.type = type;
         this.amount = amount;
         this.MAXSTACK = type.getMaxStack();

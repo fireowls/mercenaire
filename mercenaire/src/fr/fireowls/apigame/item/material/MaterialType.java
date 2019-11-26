@@ -12,7 +12,18 @@ public enum MaterialType {
     IRONINGOT(999,IronIngot.class),
     TIGERCLAW(100, TigerClaw.class),
     TIGERSKIN(100, TigerSkin.class),
-    TIGERTOOTH(100, TigerTooth.class);
+    TIGERTOOTH(100, TigerTooth.class),
+    RAWFISH(999,RawFish.class),
+    RAWBEEF(999,RawBeef.class),
+    WHEAT(999,Wheat.class),
+    FLOUR(999,Flour.class),
+    CLAY(999,Clay.class),
+    BRICK(999,Brick.class),
+    GOLDORE(999,GoldOre.class),
+    GOLDINGOT(999,GoldIngot.class),
+    COPPERORE(999,CopperOre.class),
+    COPPERINGOT(999,CopperIngot.class),
+    SEELINGOT(999,SteelIngot.class);
 
     private int maxStack;
     private Class<? extends Material> c;

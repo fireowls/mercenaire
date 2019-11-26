@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.equipment.jewlery.necklace;
 
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.equipment.Equipment;
 import fr.fireowls.apigame.item.equipment.EquipmentType;
@@ -16,8 +17,8 @@ public class Necklace extends Jewlery {
      * @param type   est le type de l'item (Weapon, Tool, Material, Consumable ou Equipment)
      * @param rarity est la rareté de l'item
      */
-    public Necklace(Rarity rarity, NecklaceType type) {
-        super(JewleryType.NECKLACE, rarity);
+    public Necklace(Rarity rarity, NecklaceType type, ItemMeta meta) {
+        super(JewleryType.NECKLACE, rarity,meta);
         this.type = type;
     }
 }

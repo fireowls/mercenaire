@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.tool.hammer.hammers;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.tool.hammer.Hammer;
@@ -11,7 +12,7 @@ public class StoneHammer extends Hammer implements Craftable, Sellable {
      * Constructeur d'item
      */
     public StoneHammer() {
-        super(HammerType.STONEHAMMER, Rarity.COMMON);
+        super(HammerType.STONEHAMMER, Rarity.COMMON,new ItemMeta("stoneHammer.json"));
     }
 
     @Override

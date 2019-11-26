@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.weapon.weapons.projectile;
 
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.weapon.Weapon;
 import fr.fireowls.apigame.item.weapon.WeaponType;
@@ -15,8 +16,8 @@ public class Projectile extends Weapon {
      * @param type   est le type de l'arme
      * @param damage est les dégâts causé par l'arme
      */
-    public Projectile(Rarity rarity, ProjectileType type, double damage) {
-        super(rarity, WeaponType.PROJECTILE, damage);
+    public Projectile(Rarity rarity, ProjectileType type, double damage, ItemMeta meta) {
+        super(rarity, WeaponType.PROJECTILE, damage,meta);
         this.type = type;
     }
 }

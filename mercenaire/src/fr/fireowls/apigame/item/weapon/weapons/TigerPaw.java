@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.weapon.weapons;
 
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.weapon.Weapon;
@@ -15,7 +16,7 @@ public class TigerPaw extends Weapon implements Sellable {
      * Constructeur de la Patte de tigre à dent de sapin
      */
     public TigerPaw() {
-        super(Rarity.LEGENDARY, WeaponType.TIGERPAW,250);
+        super(Rarity.LEGENDARY, WeaponType.TIGERPAW,250,new ItemMeta("tigerPaw.json"));
     }
 
     /**

@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.weapon.weapons.projectile.bolt.bolts;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.weapon.weapons.projectile.bolt.Bolt;
@@ -11,7 +12,7 @@ public class StoneBolt extends Bolt implements Craftable, Sellable {
      * Constructeur d'arme
      */
     public StoneBolt() {
-        super(Rarity.UNCOMMON, BoltType.STONEBOLT, 10);
+        super(Rarity.UNCOMMON, BoltType.STONEBOLT, 10,new ItemMeta("stoneBolt.json"));
     }
 
     @Override

@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.equipment.armor.chestplate.chestplates;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.equipment.armor.chestplate.Chestplate;
@@ -11,7 +12,7 @@ public class IronChestplate extends Chestplate implements Craftable, Sellable {
      * Constructeur d'item
      */
     public IronChestplate() {
-        super(Rarity.UNCOMMON, ChestplateType.IRONCHESTPLATE);
+        super(Rarity.UNCOMMON, ChestplateType.IRONCHESTPLATE,new ItemMeta("ironChestplate.json"));
     }
 
     @Override

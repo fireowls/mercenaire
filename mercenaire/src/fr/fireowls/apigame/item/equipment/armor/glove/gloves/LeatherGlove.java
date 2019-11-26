@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.equipment.armor.glove.gloves;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.equipment.armor.glove.Glove;
@@ -11,7 +12,7 @@ public class LeatherGlove extends Glove implements Craftable, Sellable {
      * Constructeur d'item
      */
     public LeatherGlove() {
-        super(Rarity.COMMON, GloveType.LEATHERGLOVE);
+        super(Rarity.COMMON, GloveType.LEATHERGLOVE,new ItemMeta("leatherGlove.json"));
     }
 
     @Override

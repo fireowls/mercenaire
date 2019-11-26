@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.equipment.armor.shoulderpad.shoulderpads;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.equipment.armor.shoulderpad.ShoulderPad;
@@ -11,7 +12,7 @@ public class IronShoulderPad extends ShoulderPad implements Craftable, Sellable 
      * Constructeur d'item
      */
     public IronShoulderPad() {
-        super(Rarity.UNCOMMON, ShoulderPadType.IRONSHOULDERPAD);
+        super(Rarity.UNCOMMON, ShoulderPadType.IRONSHOULDERPAD,new ItemMeta("IronShoulderpad.json"));
     }
 
     @Override

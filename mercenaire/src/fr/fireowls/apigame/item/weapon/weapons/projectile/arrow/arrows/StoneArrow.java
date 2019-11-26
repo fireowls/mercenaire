@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.weapon.weapons.projectile.arrow.arrows;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.weapon.weapons.projectile.arrow.Arrow;
@@ -11,7 +12,7 @@ public class StoneArrow extends Arrow implements Craftable, Sellable {
      * Constructeur d'arme
      */
     public StoneArrow() {
-        super(Rarity.UNCOMMON, ArrowType.STONEARROW, 5);
+        super(Rarity.UNCOMMON, ArrowType.STONEARROW, 5,new ItemMeta("stoneArrow.json"));
     }
 
     @Override

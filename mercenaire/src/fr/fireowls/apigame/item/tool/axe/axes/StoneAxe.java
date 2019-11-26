@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.tool.axe.axes;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.tool.axe.Axe;
@@ -11,7 +12,7 @@ public class StoneAxe extends Axe implements Craftable, Sellable {
      * Constructeur d'item
      */
     public StoneAxe() {
-        super(AxeType.STONEAXE, Rarity.COMMON);
+        super(AxeType.STONEAXE, Rarity.COMMON,new ItemMeta("stoneAxe.json"));
     }
 
     @Override

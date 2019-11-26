@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.equipment.jewlery.necklace.necklaces;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.equipment.jewlery.necklace.Necklace;
@@ -11,7 +12,7 @@ public class IronNecklace extends Necklace implements Craftable, Sellable {
      * Constructeur d'item
      */
     public IronNecklace() {
-        super(Rarity.UNCOMMON, NecklaceType.IRONNECKLACE);
+        super(Rarity.UNCOMMON, NecklaceType.IRONNECKLACE,new ItemMeta("ironNecklace.json"));
     }
 
     @Override

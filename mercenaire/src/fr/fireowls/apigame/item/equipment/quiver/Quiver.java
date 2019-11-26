@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.equipment.quiver;
 
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.equipment.Equipment;
 import fr.fireowls.apigame.item.equipment.EquipmentType;
@@ -16,8 +17,8 @@ public class Quiver extends Equipment {
      * @param type   est le type de l'item (Weapon, Tool, Material, Consumable ou Equipment)
      * @param rarity est la rareté de l'item
      */
-    public Quiver(Rarity rarity,QuiverType type,int slot) {
-        super(EquipmentType.QUIVER, rarity);
+    public Quiver(Rarity rarity,QuiverType type,int slot, ItemMeta meta) {
+        super(EquipmentType.QUIVER, rarity,meta);
         this.type = type;
         this.slots = new Projectile[slot];
     }

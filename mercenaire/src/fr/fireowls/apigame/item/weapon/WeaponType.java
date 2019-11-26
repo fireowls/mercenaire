@@ -1,8 +1,12 @@
 package fr.fireowls.apigame.item.weapon;
 
 import fr.fireowls.apigame.item.weapon.weapons.*;
+import fr.fireowls.apigame.item.weapon.weapons.battleaxe.BattleAxe;
+import fr.fireowls.apigame.item.weapon.weapons.bow.Bow;
+import fr.fireowls.apigame.item.weapon.weapons.crossbow.Crossbow;
 import fr.fireowls.apigame.item.weapon.weapons.projectile.Projectile;
 import fr.fireowls.apigame.item.weapon.weapons.sword.Sword;
+import fr.fireowls.apigame.item.weapon.weapons.warhammer.WarHammer;
 
 /**
  * @author MrKeesLer
@@ -18,6 +22,22 @@ public enum WeaponType {
      * Projectile
      */
     PROJECTILE(Projectile.class),
+    /**
+     * Hache de bataille
+     */
+    BATTLEAXE(BattleAxe.class),
+    /**
+     * Marteau de guerre
+     */
+    WARHAMMER(WarHammer.class),
+    /**
+     * Arc
+     */
+    BOW(Bow.class),
+    /**
+     * Arbalete
+     */
+    CROSSBOW(Crossbow.class),
     /**
      * Patte de tigre à dent de sapin
      */

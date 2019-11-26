@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.equipment.armor.chestplate;
 
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.equipment.Equipment;
 import fr.fireowls.apigame.item.equipment.EquipmentType;
@@ -16,8 +17,8 @@ public class Chestplate extends Armor {
      * @param type   est le type de l'item (Weapon, Tool, Material, Consumable ou Equipment)
      * @param rarity est la rareté de l'item
      */
-    public Chestplate(Rarity rarity,ChestplateType type) {
-        super(ArmorType.CHESTPLATE, rarity);
+    public Chestplate(Rarity rarity,ChestplateType type, ItemMeta meta) {
+        super(ArmorType.CHESTPLATE, rarity,meta);
         this.type = type;
     }
 }

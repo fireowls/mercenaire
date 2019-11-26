@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.weapon;
 
 import fr.fireowls.apigame.item.Item;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.ItemType;
 import fr.fireowls.apigame.item.Rarity;
 
@@ -25,8 +26,8 @@ public class Weapon extends Item {
      * @param type est le type de l'arme
      * @param damage est les dégâts causé par l'arme
      */
-    public Weapon(Rarity rarity,WeaponType type,double damage) {
-        super(ItemType.WEAPON, rarity);
+    public Weapon(Rarity rarity,WeaponType type,double damage, ItemMeta meta) {
+        super(ItemType.WEAPON, rarity,meta);
         this.type = type;
         this.damage = damage;
     }

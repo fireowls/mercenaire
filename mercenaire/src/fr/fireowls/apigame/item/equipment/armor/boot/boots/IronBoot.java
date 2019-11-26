@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.equipment.armor.boot.boots;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.equipment.armor.boot.Boot;
@@ -11,7 +12,7 @@ public class IronBoot extends Boot implements Craftable, Sellable {
      * Constructeur d'item
      */
     public IronBoot() {
-        super(Rarity.UNCOMMON, BootType.IRONBOOT);
+        super(Rarity.UNCOMMON, BootType.IRONBOOT,new ItemMeta("ironBoot.json"));
     }
 
     @Override

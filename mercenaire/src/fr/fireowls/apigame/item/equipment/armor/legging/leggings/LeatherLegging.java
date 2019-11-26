@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.equipment.armor.legging.leggings;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.equipment.armor.legging.Legging;
@@ -11,7 +12,7 @@ public class LeatherLegging extends Legging implements Craftable, Sellable {
      * Constructeur d'item
      */
     public LeatherLegging() {
-        super(Rarity.COMMON, LeggingType.LEATHERLEGGING);
+        super(Rarity.COMMON, LeggingType.LEATHERLEGGING,new ItemMeta("leatherLegging.json"));
     }
 
     @Override

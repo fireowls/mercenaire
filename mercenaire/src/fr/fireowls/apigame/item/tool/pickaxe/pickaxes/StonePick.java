@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.tool.pickaxe.pickaxes;
 
 import fr.fireowls.apigame.item.Craftable;
+import fr.fireowls.apigame.item.ItemMeta;
 import fr.fireowls.apigame.item.Rarity;
 import fr.fireowls.apigame.item.Sellable;
 import fr.fireowls.apigame.item.tool.pickaxe.Pickaxe;
@@ -11,7 +12,7 @@ public class StonePick extends Pickaxe implements Craftable, Sellable {
      * Constructeur d'item
      */
     public StonePick() {
-        super(Rarity.COMMON, PickaxeType.STONEPICK);
+        super(Rarity.COMMON, PickaxeType.STONEPICK,new ItemMeta("stonePick.json"));
     }
 
     @Override
