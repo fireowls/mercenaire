@@ -14,7 +14,7 @@
 			"file": "grass-2.png",
 			"frequency": 0.05,
 			"animation": {
-				"delay": 1,
+				"delay": 6,
 				"first-frame": 0,
 				"last-frame": 2,
 				"play-mode": "LOOP_RANDOM"

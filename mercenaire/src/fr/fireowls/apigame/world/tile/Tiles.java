@@ -5,6 +5,9 @@ import java.io.File;
 public enum Tiles {
 
     GRASS("grass", "textures/tiles/grass", GrassTile.class);
+    // DIRT
+    // WATHER
+    // GRAVEL
 
     private String id;
     private File resources;
