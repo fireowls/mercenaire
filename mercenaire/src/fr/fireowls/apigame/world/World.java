@@ -1,77 +1,68 @@
 package fr.fireowls.apigame.world;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import fr.fireowls.apigame.entity.EntityManager;
 import fr.fireowls.apigame.utils.game.GameObject;
-import fr.fireowls.apigame.world.chunk.Chunk;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import fr.fireowls.apigame.world.generator.WorldGenerator;
+import fr.fireowls.apigame.world.tile.TileInfo;
 
 public class World extends GameObject {
 
-    public static final int DEFAULT_WORLD_SIZE = 300_000_000;
+    public static final int DEFAULT_WORLD_SIZE = 4000;
 
     private String name;
-    private String seed;
-    private File file;
+    private TileInfo[][] tileInfos;
+    private WorldGenerator generator;
+    private EntityManager manager;
 
-    private List<Chunk> chunks;
-
-    public World(String name, String seed) {
-        this(name, seed, new ArrayList<Chunk>());
-    }
-
-    public World(String name, String seed, List<Chunk> chunks) {
+    public World(String name, TileInfo[][] tileInfos) {
         this.name = name;
-        this.seed = seed;
-        this.chunks = chunks;
-        this.file = new File("worlds/" + name);
+        this.tileInfos = tileInfos;
     }
 
     @Override
     protected void onCreate() {
-        chunks.stream().forEach(Chunk::create);
+        this.generator = new WorldGenerator(this);
+        this.manager = new EntityManager(this);
+        this.manager.create();
+        this.generator.create();
     }
 
     @Override
     protected void onUpdate(float delta) {
-        chunks.stream().forEach(x -> x.update(delta));
+        this.generator.update(delta);
+        this.manager.update(delta);
     }
 
     @Override
     protected void onDraw(SpriteBatch batch) {
-        chunks.stream().forEach(x -> x.draw(batch));
+        this.generator.draw(batch);
+        this.manager.draw(batch);
     }
 
     @Override
     protected void onPause() {
-        chunks.stream().forEach(Chunk::pause);
+        this.generator.pause();
+        this.manager.pause();
     }
 
     @Override
     protected void onResume() {
-        chunks.stream().forEach(Chunk::resume);
+        this.generator.resume();
+        this.manager.resume();
     }
 
     @Override
     protected void onDispose() {
-        chunks.stream().forEach(Chunk::dispose);
+        this.generator.dispose();
+        this.manager.dispose();
     }
 
     public String getName() {
         return name;
     }
 
-    public String getSeed() {
-        return seed;
-    }
-
-    public File getFile() {
-        return file;
-    }
-
-    public List<Chunk> getChunks() {
-        return chunks;
+    public TileInfo[][] getTileInfos() {
+        return tileInfos;
     }
 }

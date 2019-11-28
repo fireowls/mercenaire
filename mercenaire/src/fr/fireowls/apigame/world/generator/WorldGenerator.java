@@ -1,31 +1,51 @@
 package fr.fireowls.apigame.world.generator;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import fr.fireowls.apigame.utils.game.GameObject;
 import fr.fireowls.apigame.world.World;
+import fr.fireowls.apigame.world.chunk.ChunkManager;
 
-public class WorldGenerator {
+public class WorldGenerator extends GameObject {
 
-    private String name;
-    private String seed;
+    private World world;
+    private ChunkManager manager;
 
-    public WorldGenerator(String name) {
-        this(name, null);
+    public WorldGenerator(World world) {
+        this.world = world;
+        this.manager = new ChunkManager(world);
     }
 
-    public WorldGenerator(String name, String seed) {
-        this.name = name;
-        this.seed = seed;
+    @Override
+    protected void onCreate() {
+        manager.create();
     }
 
-    public World generate() {
-        return null;
+    @Override
+    protected void onUpdate(float delta) {
+        manager.update(delta);
     }
 
-    public String getName() {
-        return name;
+    @Override
+    protected void onDraw(SpriteBatch batch) {
+        manager.draw(batch);
     }
 
-    public String getSeed() {
-        return seed;
+    @Override
+    protected void onPause() {
+        manager.pause();
     }
 
+    @Override
+    protected void onResume() {
+        manager.resume();
+    }
+
+    @Override
+    protected void onDispose() {
+        manager.dispose();
+    }
+
+    public World getWorld() {
+        return world;
+    }
 }

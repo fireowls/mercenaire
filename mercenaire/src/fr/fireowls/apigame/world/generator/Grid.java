@@ -24,7 +24,8 @@ public class Grid {
     }
 
     public float[][] applyNoise(Noise noise) {
-        noise.transform(grid);
+        noise.setGrid(grid);
+        noise.transform();
         return grid;
     }
 

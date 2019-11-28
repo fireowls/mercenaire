@@ -1,6 +1,6 @@
 package fr.fireowls.apigame.world.generator.noise;
 
-public class SmoothNoise implements Noise {
+public class SmoothNoise extends Noise {
 
     private int octave;
 
@@ -8,8 +8,18 @@ public class SmoothNoise implements Noise {
         this.octave = octave;
     }
 
+    public SmoothNoise(int octave, float[][] grid) {
+        super(grid);
+        this.octave = octave;
+    }
+
+    public SmoothNoise(int octave, Noise noise) {
+        super(noise);
+        this.octave = octave;
+    }
+
     @Override
-    public void transform(float[][] grid) {
+    protected void transformation() {
         int height = grid.length;
         int width = grid[0].length;
         float[][] smoothNoise = new float[height][width];
