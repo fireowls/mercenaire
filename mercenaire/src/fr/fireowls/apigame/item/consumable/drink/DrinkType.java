@@ -4,7 +4,8 @@ import fr.fireowls.apigame.item.consumable.drink.drinks.*;
 
 public enum DrinkType {
     POTION(100, Potion.class),
-    SOUP(100,Soup.class);
+    SOUP(100,Soup.class),
+    SIMPLEBEER(100,SimpleBeer.class);
 
     private int maxStack;
     private Class<? extends Drink> c;

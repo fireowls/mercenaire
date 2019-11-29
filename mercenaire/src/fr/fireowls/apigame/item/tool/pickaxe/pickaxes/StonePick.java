@@ -12,7 +12,7 @@ public class StonePick extends Pickaxe implements Craftable, Sellable {
      * Constructeur d'item
      */
     public StonePick() {
-        super(Rarity.COMMON, PickaxeType.STONEPICK,new ItemMeta("stonePick.json"));
+        super(Rarity.COMMON, PickaxeType.STONEPICK,new ItemMeta("stonePickaxe.json"));
     }
 
     @Override
