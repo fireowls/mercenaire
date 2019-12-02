@@ -1,8 +1,8 @@
 package fr.fireowls.apigame.item.weapon.weapons;
 
-import fr.fireowls.apigame.item.ItemMeta;
-import fr.fireowls.apigame.item.Rarity;
-import fr.fireowls.apigame.item.Sellable;
+import fr.fireowls.apigame.item.attribut.ItemMeta;
+import fr.fireowls.apigame.item.attribut.Rarity;
+import fr.fireowls.apigame.item.attribut.Sellable;
 import fr.fireowls.apigame.item.weapon.Weapon;
 import fr.fireowls.apigame.item.weapon.WeaponType;
 

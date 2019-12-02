@@ -1,9 +1,9 @@
 package fr.fireowls.apigame.item.equipment.armor.glove.gloves;
 
-import fr.fireowls.apigame.item.Craftable;
-import fr.fireowls.apigame.item.ItemMeta;
-import fr.fireowls.apigame.item.Rarity;
-import fr.fireowls.apigame.item.Sellable;
+import fr.fireowls.apigame.item.attribut.Craftable;
+import fr.fireowls.apigame.item.attribut.ItemMeta;
+import fr.fireowls.apigame.item.attribut.Rarity;
+import fr.fireowls.apigame.item.attribut.Sellable;
 import fr.fireowls.apigame.item.equipment.armor.glove.Glove;
 import fr.fireowls.apigame.item.equipment.armor.glove.GloveType;
 

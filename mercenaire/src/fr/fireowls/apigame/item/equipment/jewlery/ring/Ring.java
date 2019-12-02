@@ -1,9 +1,7 @@
 package fr.fireowls.apigame.item.equipment.jewlery.ring;
 
-import fr.fireowls.apigame.item.ItemMeta;
-import fr.fireowls.apigame.item.Rarity;
-import fr.fireowls.apigame.item.equipment.Equipment;
-import fr.fireowls.apigame.item.equipment.EquipmentType;
+import fr.fireowls.apigame.item.attribut.ItemMeta;
+import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.equipment.jewlery.Jewlery;
 import fr.fireowls.apigame.item.equipment.jewlery.JewleryType;
 

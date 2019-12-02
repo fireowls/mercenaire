@@ -4,6 +4,10 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import fr.fireowls.apigame.item.Item;
+import fr.fireowls.apigame.item.material.MaterialType;
+import fr.fireowls.apigame.item.material.materials.Stone;
 import fr.fireowls.apigame.utils.textures.SpriteSheet;
 
 import java.io.File;
@@ -12,11 +16,14 @@ public class Mercenaire extends ApplicationAdapter {
 
 	private SpriteBatch batch;
 	private SpriteSheet sheet;
-	
+	Item stone;
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		sheet = new SpriteSheet(new File("textures/tiles/grass"));
+		stone = new Stone(50);
+		System.out.println(stone.toString());
 	}
 
 	@Override

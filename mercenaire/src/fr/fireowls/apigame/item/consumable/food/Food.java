@@ -1,7 +1,7 @@
 package fr.fireowls.apigame.item.consumable.food;
 
-import fr.fireowls.apigame.item.ItemMeta;
-import fr.fireowls.apigame.item.Rarity;
+import fr.fireowls.apigame.item.attribut.ItemMeta;
+import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.consumable.Consume;
 import fr.fireowls.apigame.item.consumable.ConsumeType;
 

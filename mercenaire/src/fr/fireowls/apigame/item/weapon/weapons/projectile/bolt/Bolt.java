@@ -1,7 +1,7 @@
 package fr.fireowls.apigame.item.weapon.weapons.projectile.bolt;
 
-import fr.fireowls.apigame.item.ItemMeta;
-import fr.fireowls.apigame.item.Rarity;
+import fr.fireowls.apigame.item.attribut.ItemMeta;
+import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.weapon.weapons.projectile.Projectile;
 import fr.fireowls.apigame.item.weapon.weapons.projectile.ProjectileType;
 

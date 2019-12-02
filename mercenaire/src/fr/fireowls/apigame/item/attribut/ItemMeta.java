@@ -1,4 +1,4 @@
-package fr.fireowls.apigame.item;
+package fr.fireowls.apigame.item.attribut;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -14,7 +14,7 @@ public class ItemMeta {
 
     public ItemMeta(String fileName){
         reader = new JsonReader();
-        FileHandle f = Gdx.files.internal("json/item/"+fileName);
+        FileHandle f = Gdx.files.internal("item/en-Eng/"+fileName);
         val = reader.parse(f);
         name = val.getString("name");
         desc = val.getString("desc");

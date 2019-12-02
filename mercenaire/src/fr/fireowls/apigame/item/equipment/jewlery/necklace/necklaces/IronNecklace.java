@@ -1,9 +1,9 @@
 package fr.fireowls.apigame.item.equipment.jewlery.necklace.necklaces;
 
-import fr.fireowls.apigame.item.Craftable;
-import fr.fireowls.apigame.item.ItemMeta;
-import fr.fireowls.apigame.item.Rarity;
-import fr.fireowls.apigame.item.Sellable;
+import fr.fireowls.apigame.item.attribut.Craftable;
+import fr.fireowls.apigame.item.attribut.ItemMeta;
+import fr.fireowls.apigame.item.attribut.Rarity;
+import fr.fireowls.apigame.item.attribut.Sellable;
 import fr.fireowls.apigame.item.equipment.jewlery.necklace.Necklace;
 import fr.fireowls.apigame.item.equipment.jewlery.necklace.NecklaceType;
 

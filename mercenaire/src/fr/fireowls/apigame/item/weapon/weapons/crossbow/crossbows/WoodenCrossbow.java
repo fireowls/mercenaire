@@ -1,10 +1,9 @@
 package fr.fireowls.apigame.item.weapon.weapons.crossbow.crossbows;
 
-import fr.fireowls.apigame.item.Craftable;
-import fr.fireowls.apigame.item.ItemMeta;
-import fr.fireowls.apigame.item.Rarity;
-import fr.fireowls.apigame.item.Sellable;
-import fr.fireowls.apigame.item.weapon.WeaponType;
+import fr.fireowls.apigame.item.attribut.Craftable;
+import fr.fireowls.apigame.item.attribut.ItemMeta;
+import fr.fireowls.apigame.item.attribut.Rarity;
+import fr.fireowls.apigame.item.attribut.Sellable;
 import fr.fireowls.apigame.item.weapon.weapons.crossbow.Crossbow;
 import fr.fireowls.apigame.item.weapon.weapons.crossbow.CrossbowType;
 

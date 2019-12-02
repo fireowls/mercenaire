@@ -1,9 +1,9 @@
 package fr.fireowls.apigame.item.equipment;
 
 import fr.fireowls.apigame.item.Item;
-import fr.fireowls.apigame.item.ItemMeta;
-import fr.fireowls.apigame.item.ItemType;
-import fr.fireowls.apigame.item.Rarity;
+import fr.fireowls.apigame.item.attribut.ItemMeta;
+import fr.fireowls.apigame.item.attribut.ItemType;
+import fr.fireowls.apigame.item.attribut.Rarity;
 
 public class Equipment extends Item {
 

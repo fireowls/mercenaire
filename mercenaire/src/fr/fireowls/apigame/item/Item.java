@@ -1,7 +1,8 @@
 package fr.fireowls.apigame.item;
 
-import fr.fireowls.apigame.item.equipment.armor.belt.belts.IronBelt;
-import fr.fireowls.apigame.item.material.materials.Stone;
+import fr.fireowls.apigame.item.attribut.ItemMeta;
+import fr.fireowls.apigame.item.attribut.ItemType;
+import fr.fireowls.apigame.item.attribut.Rarity;
 
 /**
  * @author MrKeesLer
@@ -32,12 +33,13 @@ public class Item {
         return type;
     }
 
+    public ItemMeta getMeta() { return meta; }
+
     public String toString(){
-        return this.getClass().getSimpleName()+"[rarity : "+rarity.toString()+"]";
+        String res = meta.getName()+":\n";
+        res+="\t"+meta.getDesc()+"\n";
+        res+="\t"+rarity.toString().toLowerCase()+"\n";
+        return res;
     }
 
-    public static void main(String[] args) {
-        Item stone = new Stone(10);
-        System.out.println("name : "+stone.meta.getName()+"\ndesc : "+stone.meta.getDesc());
-    }
 }

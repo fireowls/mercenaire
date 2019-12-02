@@ -1,6 +1,10 @@
 package fr.fireowls.apigame.item.consumable;
 
 import fr.fireowls.apigame.item.*;
+import fr.fireowls.apigame.item.attribut.Consumable;
+import fr.fireowls.apigame.item.attribut.ItemMeta;
+import fr.fireowls.apigame.item.attribut.ItemType;
+import fr.fireowls.apigame.item.attribut.Rarity;
 
 import java.lang.reflect.InvocationTargetException;
 

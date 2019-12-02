@@ -1,6 +1,9 @@
 package fr.fireowls.apigame.item.tool.hoe.hoes;
 
-import fr.fireowls.apigame.item.*;
+import fr.fireowls.apigame.item.attribut.Craftable;
+import fr.fireowls.apigame.item.attribut.ItemMeta;
+import fr.fireowls.apigame.item.attribut.Rarity;
+import fr.fireowls.apigame.item.attribut.Sellable;
 import fr.fireowls.apigame.item.tool.hoe.Hoe;
 import fr.fireowls.apigame.item.tool.hoe.HoeType;
 
