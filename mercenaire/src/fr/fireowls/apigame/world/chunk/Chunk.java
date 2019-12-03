@@ -23,11 +23,17 @@ public class Chunk extends GameObject {
 
     private Tile[][] tiles;
 
-    public Chunk(File file) {
+    public Chunk(World world, ChunkPosition position) {
+        this.world = world;
+        this.tiles = new Tile[CHUNK_SIZE][CHUNK_SIZE];
+        this.position = position;
+        file = new File("worlds/" + world.getName() + "/chunks/chunk_" + position.getX() + "-" + position.getY() + ".json");
+    }
+
+    public Chunk(World world, File file) {
         this.tiles = new Tile[CHUNK_SIZE][CHUNK_SIZE];
         this.file = file;
-
-        // TODO Trouver un moyen de recuperer le monde du chunk
+        this.world = world;
 
         JsonReader json = new JsonReader();
         JsonValue value = json.parse(Gdx.files.internal(file.getPath()));
@@ -80,6 +86,7 @@ public class Chunk extends GameObject {
                 t2.update(delta);
             }
         }
+        pause();
     }
 
     @Override
@@ -118,9 +125,16 @@ public class Chunk extends GameObject {
         }
     }
 
+    public World getWorld() {
+        return world;
+    }
 
     public ChunkPosition getPosition() {
         return position;
+    }
+
+    public Tile[][] getTiles() {
+        return tiles;
     }
 
     public File getFile() {

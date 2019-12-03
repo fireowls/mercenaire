@@ -1,5 +1,8 @@
 package fr.fireowls.apigame.world.biome;
 
+import fr.fireowls.apigame.utils.Location;
+import fr.fireowls.apigame.world.tile.Tile;
+
 public abstract class Biome {
 
     protected Biomes type;
@@ -10,13 +13,21 @@ public abstract class Biome {
     protected float maxHeat;
     protected float maxWet;
 
-    public Biome(Biomes type) {
+    protected float heat;
+    protected float wet;
+
+    public Biome(Biomes type, float heat, float wet) {
         this.type = type;
         this.minHeat = type.getMinHeat();
         this.minWet = type.getMinWet();
         this.maxHeat = type.getMaxHeat();
         this.maxWet = type.getMaxWet();
+
+        this.heat = heat;
+        this.wet = wet;
     }
+
+    public abstract Tile selectTile(Location location);
 
     public float getMinHeat() {
         return minHeat;
@@ -32,6 +43,14 @@ public abstract class Biome {
 
     public float getMinWet() {
         return minWet;
+    }
+
+    public float getHeat() {
+        return heat;
+    }
+
+    public float getWet() {
+        return wet;
     }
 
     public Biomes getType() {

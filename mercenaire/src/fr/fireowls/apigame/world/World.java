@@ -65,4 +65,8 @@ public class World extends GameObject {
     public TileInfo[][] getTileInfos() {
         return tileInfos;
     }
+
+    public WorldGenerator getGenerator() {
+        return generator;
+    }
 }

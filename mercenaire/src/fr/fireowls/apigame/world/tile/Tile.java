@@ -10,7 +10,7 @@ import java.io.File;
 
 public abstract class Tile extends GameObject {
 
-    public final static int TILE_SIZE = 128;
+    public final static int TILE_SIZE = 16;
 
     private String id;
     private Tiles type;

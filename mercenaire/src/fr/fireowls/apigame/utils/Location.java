@@ -1,6 +1,8 @@
 package fr.fireowls.apigame.utils;
 
 import fr.fireowls.apigame.world.World;
+import fr.fireowls.apigame.world.chunk.Chunk;
+import fr.fireowls.apigame.world.chunk.ChunkPosition;
 import fr.fireowls.apigame.world.tile.Tile;
 
 /**
@@ -95,5 +97,9 @@ public class Location {
      */
     public void setY(double y) {
         this.y = y;
+    }
+
+    public ChunkPosition getChunkPosition() {
+        return new ChunkPosition(((int) (x - (x % Chunk.CHUNK_SIZE))/ Chunk.CHUNK_SIZE), ((int) (y - (y % Chunk.CHUNK_SIZE)) / Chunk.CHUNK_SIZE));
     }
 }

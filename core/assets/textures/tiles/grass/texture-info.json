@@ -4,11 +4,11 @@
 	"textures": [
 		{
 			"file": "grass-0.png",
-			"frequency": 0.8
+			"frequency": 0.9
 		},
 		{
 			"file": "grass-1.png",
-			"frequency": 0.15
+			"frequency": 0.05
 		},
 		{
 			"file": "grass-2.png",

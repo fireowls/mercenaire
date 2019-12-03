@@ -34,7 +34,7 @@ public class WorldCreator {
         heat.generate(new PerlinNoise(new WhiteNoise()));
         System.out.println("generate tiles info...");
         TileInfo[][] tileInfos = generateInfo(heat, wet);
-
+        System.out.println("done.");
         World world = new World(name, tileInfos);
 
         return world;
