@@ -1,12 +1,13 @@
 package fr.fireowls.apigame.world.biome;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public enum Biomes {
 
-    PRAIRIE(-1, -1, 1, 1, PrairieBiome.class);
+    PRAIRIE(0, 0, 100, 100, PrairieBiome.class);
     // POLAR(0, 0, 0, 0),
     // TUNDRA(0, 0, 0, 0),
     // BOREAL_FOREST(0, 0, 0, 0),
@@ -53,23 +54,6 @@ public enum Biomes {
 
     public Class<? extends Biome> getBiomeClass() {
         return c;
-    }
-
-    public static List<Biomes> getCompatiblesBiomes(float heat, float wet) {
-        List<Biomes> biomes = new ArrayList<Biomes>();
-        for (Biomes biome : Biomes.values()) {
-            if (heat >= biome.getMinHeat() && heat <= biome.getMaxHeat() && wet >= biome.getMinWet() && wet <= biome.getMaxWet()) {
-                biomes.add(biome);
-            } else {
-                System.out.println(heat + " " + wet);
-            }
-        }
-        return biomes;
-    }
-
-    public static Biomes selectBiome(float heat, float wet) {
-        List<Biomes> biomes = getCompatiblesBiomes(heat, wet);
-        return biomes.get(new Random().nextInt(biomes.size()));
     }
 
 }

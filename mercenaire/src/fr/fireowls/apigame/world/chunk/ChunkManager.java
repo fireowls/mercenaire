@@ -74,13 +74,8 @@ public class ChunkManager extends GameObject {
                 Location location = new Location(world, col, row);
 
                 BiomeManager biomeManager = ApiGame.getBiomeManager();
-                Biome biome = null;
-                try {
-                    biome = biomeManager.selectBiomeByValue(tileInfo.getHeat(), tileInfo.getWet());
-                    chunk.getTiles()[y][x] = biome.selectTile(location);
-                } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
-                    e.printStackTrace();
-                }
+                Biome biome = biomeManager.selectBiomeByValue(tileInfo.getHeat(), tileInfo.getWet());
+                chunk.getTiles()[y][x] = biome.selectTile(location, world.getTileInfos()[(int) location.getY()][(int) location.getX()].getTileSelector());
             }
         }
         list.add(chunk);

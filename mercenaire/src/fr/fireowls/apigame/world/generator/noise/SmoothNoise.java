@@ -46,6 +46,7 @@ public class SmoothNoise extends Noise {
                 grid[i][j] = smoothNoise[i][j];
             }
         }
+
     }
 
     public int getOctave() {

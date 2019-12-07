@@ -17,6 +17,10 @@ public class ItemSelector<E> {
 
     public E selectItem() {
         double selected = Math.random();
+        return selectItem(selected);
+    }
+
+    public E selectItem(double selected) {
         double last = 0;
         for (int i = 0 ; i < map.size() ; i++) {
             float frequency = (Float) map.values().toArray()[i];
@@ -31,7 +35,7 @@ public class ItemSelector<E> {
             }
             last += frequency;
         }
-
+        System.out.println(selected);
         return null;
     }
 

@@ -2,7 +2,7 @@ package fr.fireowls.apigame.world.generator.noise;
 
 public class PerlinNoise extends Noise {
 
-    public static final int DEFAULT_OCTAVES = 8;
+    public static final int DEFAULT_OCTAVES = 1;
     public static final float DEFAULT_PERSISTANCE = 0.7f;
     public static final float DEFAULT_AMPLITUDE = 1.0f;
 
@@ -76,7 +76,7 @@ public class PerlinNoise extends Noise {
                 for (int j = 0; j < width; j++) {
                     grid[i][j] += smoothNoise[octave][i][j] * amplitude;
                     if (octave == 0)
-                        grid[i][j] /= totalAmplitude;
+                        grid[i][j] /= totalAmplitude + 1;
                 }
             }
         }
