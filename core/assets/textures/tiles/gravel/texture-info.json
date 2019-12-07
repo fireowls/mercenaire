@@ -1,0 +1,11 @@
+{
+	"width": 16,
+	"height": 16,
+	"textures": [
+		{
+			"file": "gravel.png",
+			"frequency": 1
+		}
+	]
+}
+

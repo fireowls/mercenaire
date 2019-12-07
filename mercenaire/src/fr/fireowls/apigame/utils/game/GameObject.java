@@ -21,7 +21,8 @@ public abstract class GameObject implements Updatable {
     public void create() {
         if (state == GameObjectState.WAITING) {
             this.state = GameObjectState.RUNNING;
-            this.onCreate.handle();
+            if (onCreate != null)
+                this.onCreate.handle();
             onCreate();
         }
     }
@@ -31,7 +32,8 @@ public abstract class GameObject implements Updatable {
     @Override
     public void update(float delta) {
         if (state == GameObjectState.RUNNING) {
-            this.onUpdate.handle(delta);
+            if (onUpdate != null)
+                this.onUpdate.handle(delta);
             onUpdate(delta);
         }
     }
@@ -41,7 +43,8 @@ public abstract class GameObject implements Updatable {
     @Override
     public void draw(SpriteBatch batch) {
         if (state == GameObjectState.RUNNING) {
-            this.onDraw.handle(batch);
+            if (onDraw != null)
+                this.onDraw.handle(batch);
             onDraw(batch);
         }
     }
@@ -52,7 +55,8 @@ public abstract class GameObject implements Updatable {
     public void pause() {
         if (state == GameObjectState.RUNNING) {
             this.state = GameObjectState.PAUSE;
-            this.onPause.handle();
+            if (onPause != null)
+                this.onPause.handle();
             onPause();
         }
     }
@@ -63,7 +67,8 @@ public abstract class GameObject implements Updatable {
     public void resume() {
         if (state == GameObjectState.PAUSE) {
             this.state = GameObjectState.RUNNING;
-            this.onResume.handle();
+            if (onResume != null)
+                this.onResume.handle();
             onResume();
         }
     }
@@ -74,7 +79,8 @@ public abstract class GameObject implements Updatable {
     public void dispose() {
         if (state == GameObjectState.RUNNING || state == GameObjectState.PAUSE) {
             this.state = GameObjectState.STOP;
-            this.onDispose.handle();
+            if (onDispose != null)
+                this.onDispose.handle();
             onDispose();
         }
     }
