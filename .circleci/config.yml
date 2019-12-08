@@ -26,11 +26,11 @@ executors:
     node:
         docker:
             - image: circleci/node:10.15.3
-        working_directory: ./panel
+        working_directory: ~/panel
     node_browsers:
         docker:
             - image: circleci/node:10-browsers
-        working_directory: ./panel
+        working_directory: ~/panel
 
 jobs:
     # install
@@ -38,6 +38,7 @@ jobs:
         executor: node
         steps:
             - checkout_restore_node_cache
+            - run: pwd
             - run: npm install
             - save_cache:
                 paths:
