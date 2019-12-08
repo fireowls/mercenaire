@@ -13,7 +13,7 @@ commands:
             - checkout
             - restore_cache:
                 keys:
-                    - v2-dependencies-{{ checksum "~/panel/package-lock.json" }}
+                    - v2-dependencies-{{ checksum "package-lock.json" }}
                     - v2-dependencies-
 
 executors:
