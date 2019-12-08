@@ -38,7 +38,7 @@ jobs:
             - run: cd panel && npm install
             - save_cache:
                 paths:
-                    - ./panel/node_modules
+                    - ~/panel/node_modules
                 key: v2-dependencies-
     dependencies:
         executor: gradle
