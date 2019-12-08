@@ -8,6 +8,7 @@ commands:
                 keys:
                     - v1-dependencies-{{ checksum "build.gradle" }}
                     - v1-dependencies-
+
 executors:
     gradle: 
         docker:
@@ -18,7 +19,7 @@ executors:
         
 jobs:
     dependencies:
-        executors: gradle
+        executor: gradle
             steps:
                 - checkout_restore_cache
                 - run: ./gradlew dependencies
@@ -26,11 +27,17 @@ jobs:
                     paths:
                         - ~/.gradle
                     key: v1-dependencies-{{ checksum "build.gradle" }}
+    core_test:
+        executor: gradle
+            steps:
+                - checkout_restore_cache
+                - run: ./gradlew core:test
 
-
-    
 workflows:
     version: 2.1
     integration:
         jobs:
             - dependencies
+            - core_test:
+                  requires:
+                      - dependencies
