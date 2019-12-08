@@ -9,9 +9,9 @@ commands:
                     - v1-dependencies-{{ checksum "build.gradle" }}
                     - v1-dependencies-
     checkout_restore_node_cache:
+        working_directory: ~/panel
         steps:
             - checkout
-            - run: cd panel
             - restore_cache:
                   keys:
                       - v2-dependencies-{{ checksum "~/panel/package-lock.json" }}
@@ -39,7 +39,6 @@ jobs:
         executor: node
         steps:
             - checkout_restore_node_cache
-            - run: ls
             - run: npm install
             - save_cache:
                 paths:
