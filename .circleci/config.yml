@@ -32,12 +32,36 @@ jobs:
         steps:
             - checkout_restore_cache
             - run: ./gradlew core:test
+    desktop_test:
+        executor: gradle
+        steps:
+            - checkout_restore_cache
+            - run: ./gradlew desktop:test
+    mercenaire_test:
+        executor: gradle
+        steps:
+            - checkout_restore_cache
+            - run: ./gradlew mercenaire:test
+    server_test:
+        executor: gradle
+        steps:
+            - checkout_restore_cache
+            - run: ./gradlew server:test
 
 workflows:
     version: 2.1
     integration:
         jobs:
             - dependencies
+            - mercenaire_test:
+                  requires:
+                      - dependencies
             - core_test:
+                  requires:
+                      - dependencies
+            - desktop_test:
+                  requires:
+                      - dependencies
+            - server_test:
                   requires:
                       - dependencies
