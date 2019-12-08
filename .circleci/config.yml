@@ -99,6 +99,11 @@ jobs:
         step:
             - checkout_restore_gradle_cache
             - run: ./gradlew build
+    panel_build:
+        executor: node
+        step:
+            - checkout_restore_node_cache
+            - run: npm run build
 
 workflows:
     version: 2.1
