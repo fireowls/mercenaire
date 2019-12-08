@@ -11,6 +11,7 @@ commands:
     checkout_restore_node_cache:
         steps:
             - checkout
+            - run: cd panel
             - restore_cache:
                   keys:
                       - v2-dependencies-{{ checksum "package-lock.json" }}
@@ -38,7 +39,6 @@ jobs:
         executor: node
         steps:
             - checkout_restore_node_cache
-            - run: pwd
             - run: npm install
             - save_cache:
                 paths:
