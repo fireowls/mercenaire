@@ -14,7 +14,7 @@ commands:
             - run: cd panel
             - restore_cache:
                   keys:
-                      - v2-dependencies-{{ checksum "package-lock.json" }}
+                      - v2-dependencies-{{ checksum "~/panel/package-lock.json" }}
                       - v2-dependencies-
 
 executors:
@@ -43,7 +43,7 @@ jobs:
             - save_cache:
                 paths:
                     - ./node_modules
-                key: v2-dependencies-{{ checksum "package-lock.json" }}
+                key: v2-dependencies-{{ checksum "~/panel/package-lock.json" }}
     dependencies:
         executor: gradle
         steps:
