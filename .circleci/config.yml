@@ -13,7 +13,7 @@ commands:
             - checkout
             - restore_cache:
                 keys:
-                    - v2-dependencies-
+                    - m2-dependencies-
 
 executors:
     gradle: 
@@ -39,7 +39,7 @@ jobs:
             - save_cache:
                 paths:
                     - ~/panel/node_modules
-                key: v2-dependencies-
+                key: m2-dependencies-
     dependencies:
         executor: gradle
         steps:
