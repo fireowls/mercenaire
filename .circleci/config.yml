@@ -86,7 +86,7 @@ jobs:
     panel_e2e:
         executor: node_browsers
         steps:
-            - checkout _restore_node_cache
+            - checkout_restore_node_cache
             - run: npm run e2e:ci
     #builds
     desktop_build:
