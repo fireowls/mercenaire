@@ -39,6 +39,7 @@ jobs:
         executor: node
         steps:
             - checkout_restore_node_cache
+            - run: ls
             - run: npm install
             - save_cache:
                 paths:
