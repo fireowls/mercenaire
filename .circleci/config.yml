@@ -20,18 +20,18 @@ executors:
 jobs:
     dependencies:
         executor: gradle
-            steps:
-                - checkout_restore_cache
-                - run: ./gradlew dependencies
-                - save_cache:
-                    paths:
-                        - ~/.gradle
-                    key: v1-dependencies-{{ checksum "build.gradle" }}
+        steps:
+            - checkout_restore_cache
+            - run: ./gradlew dependencies
+            - save_cache:
+                paths:
+                    - ~/.gradle
+                key: v1-dependencies-{{ checksum "build.gradle" }}
     core_test:
         executor: gradle
-            steps:
-                - checkout_restore_cache
-                - run: ./gradlew core:test
+        steps:
+            - checkout_restore_cache
+            - run: ./gradlew core:test
 
 workflows:
     version: 2.1
