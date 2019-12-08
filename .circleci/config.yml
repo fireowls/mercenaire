@@ -91,17 +91,17 @@ jobs:
     #builds
     desktop_build:
         executor: gradle
-        step:
+        steps:
             - checkout_restore_gradle_cache
             - run: ./gradlew dist
     server_build:
         executor: gradle
-        step:
+        steps:
             - checkout_restore_gradle_cache
             - run: ./gradlew build
     panel_build:
         executor: node
-        step:
+        steps:
             - checkout_restore_node_cache
             - run: npm run build
 
