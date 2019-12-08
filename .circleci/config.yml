@@ -76,7 +76,7 @@ jobs:
         executor: node
         steps:
             - checkout_restore_node_cache
-            - run: cd panel && npm run lint
+            - run: cd panel && ls && npm run lint
     panel_test:
         executor: node_browsers
         steps:
