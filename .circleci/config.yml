@@ -142,4 +142,4 @@ workflows:
                 requires:
                     - install
                     - desktop_build
-                    - desktop_server
+                    - server_build
