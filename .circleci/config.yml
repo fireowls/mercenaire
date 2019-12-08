@@ -42,9 +42,7 @@ jobs:
             - save_cache:
                 paths:
                     - ./node_modules
-                keys:
-                  - v2-dependencies-{{ checksum "package-lock.json" }}
-                  - v2-dependencies-
+                key: v2-dependencies-{{ checksum "package-lock.json" }}
     dependencies:
         executor: gradle
         steps:
