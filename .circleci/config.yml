@@ -9,13 +9,12 @@ commands:
                     - v1-dependencies-{{ checksum "build.gradle" }}
                     - v1-dependencies-
     checkout_restore_node_cache:
-        working_directory: ~/panel
         steps:
             - checkout
             - restore_cache:
-                  keys:
-                      - v2-dependencies-{{ checksum "~/panel/package-lock.json" }}
-                      - v2-dependencies-
+                keys:
+                    - v2-dependencies-{{ checksum "~/panel/package-lock.json" }}
+                    - v2-dependencies-
 
 executors:
     gradle: 
@@ -39,11 +38,13 @@ jobs:
         executor: node
         steps:
             - checkout_restore_node_cache
-            - run: npm install
+            - run: cd panel && npm install
             - save_cache:
                 paths:
                     - ./node_modules
-                key: v2-dependencies-{{ checksum "~/panel/package-lock.json" }}
+                keys:
+                  - v2-dependencies-{{ checksum "package-lock.json" }}
+                  - v2-dependencies-
     dependencies:
         executor: gradle
         steps:
@@ -78,17 +79,17 @@ jobs:
         executor: node
         steps:
             - checkout_restore_node_cache
-            - run: npm run lint
+            - run: cd panel && npm run lint
     panel_test:
         executor: node_browsers
         steps:
             - checkout_restore_node_cache
-            - run: npm run test:ci
+            - run: cd panel && npm run test:ci
     panel_e2e:
         executor: node_browsers
         steps:
             - checkout_restore_node_cache
-            - run: npm run e2e:ci
+            - run: cd panel && npm run e2e:ci
     #builds
     desktop_build:
         executor: gradle
@@ -104,7 +105,7 @@ jobs:
         executor: node
         steps:
             - checkout_restore_node_cache
-            - run: npm run build
+            - run: cd panel && npm run build
 
 workflows:
     version: 2.1
