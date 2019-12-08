@@ -25,11 +25,9 @@ executors:
     node:
         docker:
             - image: circleci/node:10.15.3
-        working_directory: ~/panel
     node_browsers:
         docker:
             - image: circleci/node:10-browsers
-        working_directory: ~/panel
 
 jobs:
     # install
