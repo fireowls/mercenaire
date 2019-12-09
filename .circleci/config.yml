@@ -24,9 +24,11 @@ executors:
             TERM: dumb
     node:
         docker:
+            - image: circleci/openjdk:8-jdk
             - image: circleci/node:10.15.3
     node_browsers:
         docker:
+            - image: circleci/openjdk:8-jdk
             - image: circleci/node:10-browsers
 
 jobs:
