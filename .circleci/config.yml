@@ -28,7 +28,8 @@ commands:
                       - mercenaire/build/libs/*
                       - server/build/libs/*
                       - panel/src/dist/*
-                      - panel/src/assets/*
+                      - panel/src/assets/ressources/*
+                      - panel/src/assets/documentation/*
 executors:
     gradle: 
         docker:
@@ -130,7 +131,7 @@ jobs:
             - run: |
                 for project in 'desktop' 'mercenaire' 'server'
                 do
-                  ls /home/circleci/project/$project
+                  ls $project
                 done
             - save_workspace
     # builds
