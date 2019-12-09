@@ -13,11 +13,7 @@ commands:
             - checkout
             - restore_cache:
                 keys:
-                    - node-modules-
-            - restore_cache:
-                keys:    
-                    - v1-dependencies-{{ checksum "build.gradle" }}
-                    - v1-dependencies-
+                    - node-
 executors:
     gradle: 
         docker:
@@ -49,7 +45,7 @@ jobs:
             - save_cache:
                 paths:
                     - /home/circleci/project/panel/node_modules
-                key: node-modules-
+                key: node-
     dependencies:
         executor: gradle
         steps:
