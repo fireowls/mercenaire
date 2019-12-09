@@ -105,10 +105,9 @@ jobs:
                     cp -r "/home/circleci/project/$project/build/docs/javadoc" "/home/circleci/project/panel/src/assets/documentation/$project"
                 done
             - persist_to_workspace:
-                  root: ./
+                  root: panel
                   paths:
-                      - panel/dist/*
-                      - panel/src/assets/*
+                      - src/assets/*
     copy_resources:
         docker:
             - image: koalaman/shellcheck-alpine:stable
@@ -124,10 +123,9 @@ jobs:
                   ls /home/circleci/project/$project
                 done
             - persist_to_workspace:
-                  root: ./
+                  root: panel
                   paths:
-                      - panel/dist/*
-                      - panel/src/assets/*
+                      - src/assets/*
     # builds
     desktop_build:
         executor: gradle
@@ -165,7 +163,6 @@ jobs:
             - run: |
                   cd panel
                   npm run build:gh-pages
-
 workflows:
     version: 2.1
     integration:
