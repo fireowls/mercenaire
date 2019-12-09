@@ -139,6 +139,7 @@ jobs:
             - load_workspace
             - run: |
                 ./gradlew dist
+                mkdir panel/src/assets/ressources/
                 cp -r ./desktop/build/libs/* "panel/src/assets/ressources/"
             - save_workspace
     server_build:
@@ -148,6 +149,7 @@ jobs:
             - load_workspace
             - run: |
                 ./gradlew server:build
+                mkdir panel/src/assets/ressources/
                 cp -r ./server/build/libs/* "panel/src/assets/ressources/"
             - save_workspace
     mercenaire_build:
@@ -157,6 +159,7 @@ jobs:
             - load_workspace
             - run: |
                 ./gradlew mercenaire:build
+                mkdir panel/src/assets/ressources/
                 cp -r ./mercenaire/build/libs/* "panel/src/assets/ressources/"
             - save_workspace
     panel_build:
