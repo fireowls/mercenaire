@@ -105,7 +105,7 @@ jobs:
             - checkout_restore_gradle_cache
             - run: |
                 ./gradlew javadoc
-                for project in 'core' 'desktop 'mercenaire' 'server'
+                for project in 'core' 'desktop' 'mercenaire' 'server'
                 do
                     cp "/home/circleci/project/$project/build/docs/javadoc" "/home/circleci/project/panel/src/assets/$project"
                 done
