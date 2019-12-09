@@ -154,9 +154,7 @@ workflows:
     integration:
         jobs:
             - dependencies
-            - install:
-                requires:
-                    - dependencies    
+            - install
             - panel_lint:
                 requires:
                     - install
@@ -187,9 +185,14 @@ workflows:
             - server_build:
                 requires:
                     - server_test
+            - copy_resources:
+                requires:
+                    - desktop_build
+                    - server_build
             - panel_build:
                 requires:
                     - install
                     - desktop_build
                     - server_build
+                    - copy_resources
                     - javadoc
