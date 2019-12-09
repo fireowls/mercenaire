@@ -30,6 +30,7 @@ executors:
     node:
         docker:
             - image: circleci/openjdk:8-jdk
+        docker:
             - image: circleci/node:10.15.3
         environment:
             JVM_OPTS: -Xmx3200m
@@ -37,6 +38,7 @@ executors:
     node_browsers:
         docker:
             - image: circleci/openjdk:8-jdk
+        docker:
             - image: circleci/node:10-browsers
         environment:
             JVM_OPTS: -Xmx3200m
