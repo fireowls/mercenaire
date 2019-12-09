@@ -117,6 +117,8 @@ jobs:
             - attach_workspace:
                   at: ./
             - run: |
+                ls panel/src/assets/documentations/*
+                ls panel/src/assets/ressources/*
                 for project in 'desktop' 'mercenaire' 'server'
                 do
                     cp -r "/home/circleci/project/$project/build/libs/*" "/home/circleci/project/panel/src/assets/ressources/$project"
@@ -162,8 +164,6 @@ jobs:
                 at: ./
             - run: |
                   cd panel
-                  ls src/assets/documentations/*
-                  ls src/assets/ressources/*
                   npm run build:gh-pages
 
 workflows:
