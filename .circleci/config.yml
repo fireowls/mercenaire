@@ -117,11 +117,9 @@ jobs:
             - attach_workspace:
                   at: ./
             - run: |
-                ls panel/src/assets/documentations/*
-                ls panel/src/assets/ressources/*
                 for project in 'desktop' 'mercenaire' 'server'
                 do
-                    cp -r "/home/circleci/project/$project/build/libs/*" "/home/circleci/project/panel/src/assets/ressources/$project"
+                  ls "/home/circleci/project/$project/*"
                 done
             - persist_to_workspace:
                   root: ./
