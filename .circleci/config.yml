@@ -120,7 +120,7 @@ jobs:
                 ls
                 for project in 'desktop' 'mercenaire' 'server'
                 do
-                  ls /home/circleci/project/$project/
+                  ls /home/circleci/project/$project
                 done
             - persist_to_workspace:
                   root: ./
