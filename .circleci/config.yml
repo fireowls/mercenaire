@@ -25,7 +25,6 @@ commands:
                   root: ./
                   paths:
                       - desktop/build/libs/*
-                      - mercenaire/build/libs/*
                       - server/build/libs/*
                       - panel/src/dist/*
                       - panel/src/assets/ressources/*
