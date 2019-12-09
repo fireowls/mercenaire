@@ -24,9 +24,9 @@ commands:
             - persist_to_workspace:
                   root: ./
                   paths:
-                      - desktop/build/libs/*
-                      - mercenaire/build/libs/*
-                      - server/build/libs/*
+                      - desktop/build/*
+                      - mercenaire/build/*
+                      - server/build/*
                       - panel/src/dist/*
                       - panel/src/assets/ressources/*
                       - panel/src/assets/documentation/*
@@ -197,16 +197,13 @@ workflows:
                     - dependencies
             - desktop_build:
                 requires:
-                    - dependencies
-                    - desktop_test
+                    - mercenaire_build
             - server_build:
                 requires:
-                    - dependencies
-                    - server_test
+                    - desktop_build
             - mercenaire_build:
                 requires:
                     - dependencies
-                    - mercenaire_test
             - copy_resources:
                 requires:
                     - desktop_build
@@ -215,7 +212,5 @@ workflows:
             - panel_build:
                 requires:
                     - install
-                    - desktop_build
-                    - server_build
                     - copy_resources
                     - javadoc
