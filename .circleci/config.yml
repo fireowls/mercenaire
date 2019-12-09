@@ -35,7 +35,7 @@ jobs:
         executor: node
         steps:
             - checkout_restore_node_cache
-            - run: cd panel && npm install
+            - run: ./gradlew panel:install
             - save_cache:
                 paths:
                     - ~/panel/node_modules
@@ -74,17 +74,17 @@ jobs:
         executor: node
         steps:
             - checkout_restore_node_cache
-            - run: cd panel && ls && npm run lint
+            - run: ./gradlew panel:lint
     panel_test:
         executor: node_browsers
         steps:
             - checkout_restore_node_cache
-            - run: cd panel && npm run test:ci
+            - run: ./gradlew panel:test
     panel_e2e:
         executor: node_browsers
         steps:
             - checkout_restore_node_cache
-            - run: cd panel && npm run e2e:ci
+            - run: ./gradlew panel:e2e
     #builds
     desktop_build:
         executor: gradle
@@ -95,19 +95,21 @@ jobs:
         executor: gradle
         steps:
             - checkout_restore_gradle_cache
-            - run: ./gradlew build
+            - run: ./gradlew server:build
     panel_build:
         executor: node
         steps:
             - checkout_restore_node_cache
-            - run: cd panel && npm run build
+            - run: ./gradlew panel:build
 
 workflows:
     version: 2.1
     integration:
         jobs:
             - dependencies
-            - install
+            - install:
+                requires:
+                    - dependencies    
             - panel_lint:
                 requires:
                     - install
