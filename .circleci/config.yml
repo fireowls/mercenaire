@@ -107,7 +107,7 @@ jobs:
                 ./gradlew javadoc
                 for project in 'core' 'desktop 'mercenaire' 'server'
                 do
-                    cp -r "/home/circleci/project/$project/build/docs/javadoc" "/home/circleci/project/panel/src/assets/$project"
+                    cp "/home/circleci/project/$project/build/docs/javadoc" "/home/circleci/project/panel/src/assets/$project"
                 done
             - persist_to_workspace:
                   root: ./
