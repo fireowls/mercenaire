@@ -13,6 +13,7 @@ commands:
             - checkout
             - restore_cache:
                 keys:
+                    - node-{{ checksum "/home/circleci/project/panel/package-lock.json" }}
                     - node-
 executors:
     gradle: 
@@ -45,7 +46,7 @@ jobs:
             - save_cache:
                 paths:
                     - /home/circleci/project/panel/node_modules
-                key: node-
+                key: node-{{ checksum "/home/circleci/project/panel/package-lock.json" }}
     dependencies:
         executor: gradle
         steps:
