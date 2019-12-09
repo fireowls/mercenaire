@@ -132,11 +132,28 @@ jobs:
         steps:
             - checkout_restore_gradle_cache
             - run: ./gradlew dist
+            - persist_to_workspace:
+                  root: ./
+                  paths:
+                      - desktop/build/libs/*
     server_build:
         executor: gradle
         steps:
             - checkout_restore_gradle_cache
             - run: ./gradlew server:build
+            - persist_to_workspace:
+                  root: ./
+                  paths:
+                      - server/build/libs/*
+    mercenaire_build:
+        executor: gradle
+        steps:
+            - checkout_restore_gradle_cache
+            - run: ./gradlew mercenaire:build
+            - persist_to_workspace:
+                  root: ./
+                  paths:
+                      - mercenaire/build/libs/*
     panel_build:
         executor: node
         steps:
@@ -185,6 +202,9 @@ workflows:
             - server_build:
                 requires:
                     - server_test
+            - mercenaire_build:
+                requires:
+                    - mercenaire_test
             - copy_resources:
                 requires:
                     - desktop_build
