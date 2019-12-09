@@ -13,7 +13,7 @@ commands:
             - checkout
             - restore_cache:
                 keys:
-                    - m2-dependencies-
+                    - node-modules-
             - restore_cache:
                 keys:    
                     - v1-dependencies-{{ checksum "build.gradle" }}
@@ -51,7 +51,7 @@ jobs:
             - save_cache:
                 paths:
                     - ~/panel/node_modules
-                key: m2-dependencies-
+                key: node-modules-
     dependencies:
         executor: gradle
         steps:
@@ -88,6 +88,7 @@ jobs:
             - checkout_restore_node_cache
             - run: |
                   cd panel
+                  ls
                   npm run lint
     panel_test:
         executor: node_browsers
