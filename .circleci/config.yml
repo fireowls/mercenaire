@@ -29,17 +29,15 @@ executors:
             TERM: dumb
     node:
         docker:
-            - image: circleci/openjdk:8-jdk
-        docker:
             - image: circleci/node:10.15.3
+            - image: circleci/openjdk:8-jdk
         environment:
             JVM_OPTS: -Xmx3200m
             TERM: dumb
     node_browsers:
         docker:
-            - image: circleci/openjdk:8-jdk
-        docker:
             - image: circleci/node:10-browsers
+            - image: circleci/openjdk:8-jdk
         environment:
             JVM_OPTS: -Xmx3200m
             TERM: dumb
