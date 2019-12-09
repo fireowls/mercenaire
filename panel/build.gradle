@@ -1,5 +1,5 @@
 task install(type: Exec) {
-	
+
 	commandLine 'npm'
 	args 'install'
 	standardOutput = new ByteArrayOutputStream()
@@ -14,14 +14,14 @@ task test(type: Exec) {
 	standardOutput = new ByteArrayOutputStream()
 	ext.output = {
 		return standardOutput.toString()
-	}	
+	}
 }
 
 task lint(type: Exec) {
 	commandLine 'npm'
 	args 'run', 'lint'
 	standardOutput = new ByteArrayOutputStream()
-	ext.output = {	
+	ext.output = {
 		return standardOutput.toString()
 	}
 }

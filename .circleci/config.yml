@@ -82,11 +82,7 @@ jobs:
         steps:
             - checkout_restore_node_cache
             - run: |
-                  pwd
-                  ls
                   cd panel
-                  pwd
-                  ls
                   npm run lint
     panel_test:
         executor: node_browsers
@@ -101,8 +97,24 @@ jobs:
             - checkout_restore_node_cache
             - run: |
                   cd panel
-                  npm run e2e:ci
-    #builds
+                  npm run e2e:c
+    # resources
+    javadoc:
+        executor: gradle
+        steps:
+            - checkout_restore_gradle_cache
+            - run: |
+                ./gradlew javadoc
+                for project in 'core' 'desktop 'mercenaire' 'server'
+                do
+                    cp -r "/home/circleci/project/$project/build/docs/javadoc" "/home/circleci/project/panel/src/assets/$project"
+                done
+            - persist_to_workspace:
+                  root: ./
+                  paths:
+                      - panel/dist/*
+                      - panel/src/assets/*
+    # builds
     desktop_build:
         executor: gradle
         steps:
@@ -117,8 +129,11 @@ jobs:
         executor: node
         steps:
             - checkout_restore_node_cache
+            - attach_workspace:
+                at: ./
             - run: |
                   cd panel
+                  ls src/assets
                   npm run build:gh-pages
 
 workflows:
