@@ -209,6 +209,7 @@ workflows:
                 requires:
                     - desktop_build
                     - server_build
+                    - mercenaire_build
             - panel_build:
                 requires:
                     - install
