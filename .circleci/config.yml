@@ -125,6 +125,7 @@ jobs:
             - image: koalaman/shellcheck-alpine:stable
         steps:
             - checkout
+            - run: pwd && ls
             - load_workspace
             - run: |
                 for project in 'desktop' 'mercenaire' 'server'
