@@ -25,15 +25,9 @@ executors:
     node:
         docker:
             - image: circleci/node:10.15.3
-        environment:
-            JVM_OPTS: -Xmx3200m
-            TERM: dumb
     node_browsers:
         docker:
             - image: circleci/node:10-browsers
-        environment:
-            JVM_OPTS: -Xmx3200m
-            TERM: dumb
 jobs:
     # install
     install:
@@ -116,6 +110,8 @@ jobs:
                       - panel/dist/*
                       - panel/src/assets/*
     copy_resources:
+        dockers:
+            - image: koalaman/shellcheck-alpine:stable
         steps:
             - checkout
             - attach_workspace:
