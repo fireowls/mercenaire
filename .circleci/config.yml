@@ -110,7 +110,7 @@ jobs:
                       - panel/dist/*
                       - panel/src/assets/*
     copy_resources:
-        dockers:
+        docker:
             - image: koalaman/shellcheck-alpine:stable
         steps:
             - checkout
