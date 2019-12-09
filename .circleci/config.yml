@@ -117,6 +117,7 @@ jobs:
             - attach_workspace:
                   at: ./
             - run: |
+                pwd
                 ls
                 for project in 'desktop' 'mercenaire' 'server'
                 do
