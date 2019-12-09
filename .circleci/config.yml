@@ -198,14 +198,15 @@ workflows:
             - desktop_build:
                 requires:
                     - dependencies
-                    - server_build
+                    - desktop_test
             - server_build:
                 requires:
                     - dependencies
+                    - server_test
             - mercenaire_build:
                 requires:
                     - dependencies
-                    - desktop_build
+                    - mercenaire_test
             - copy_resources:
                 requires:
                     - desktop_build
