@@ -118,19 +118,15 @@ jobs:
                     cp -r "/home/circleci/project/$project/build/docs/javadoc" "/home/circleci/project/panel/src/assets/documentation/$project"
                 done
             - save_workspace
-    copy_resources:
-        docker:
-            - image: koalaman/shellcheck-alpine:stable
+    deploy-gh-pages:
+        executor: node
         steps:
-            - checkout
-            - run: pwd && ls
+            - checkout_restore_node_cache
             - load_workspace
             - run: |
-                for project in 'desktop' 'mercenaire' 'server'
-                do
-                  cp -r $project/build/libs/* "panel/src/assets/ressources/"
-                done
-            - save_workspace
+                cd panel
+                npm run deploy:gh-pages -- -t $GITHUB_TOKEN
+
     # builds
     desktop_build:
         executor: gradle
@@ -203,13 +199,13 @@ workflows:
                     - dependencies
             - desktop_build:
                 requires:
-                    - dependencies
+                    - desktop_test
             - server_build:
                 requires:
-                    - dependencies
+                    - server_test
             - mercenaire_build:
                 requires:
-                    - dependencies
+                    - mercenaire_test
             - panel_build:
                 requires:
                     - install
@@ -217,3 +213,6 @@ workflows:
                     - server_build
                     - desktop_build
                     - javadoc
+            - deploy-gh-pages:
+                requires:
+                    - panel_build
