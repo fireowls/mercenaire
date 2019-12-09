@@ -48,7 +48,7 @@ jobs:
                 npm install
             - save_cache:
                 paths:
-                    - ~/panel/node_modules
+                    - /home/circleci/project/panel/node_modules
                 key: node-modules-
     dependencies:
         executor: gradle
