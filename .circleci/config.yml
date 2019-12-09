@@ -15,6 +15,20 @@ commands:
                 keys:
                     - node-{{ checksum "/home/circleci/project/panel/package-lock.json" }}
                     - node-
+    load_workspace:
+        steps:
+            - attach_workspace:
+                  at: ./
+    save_workspace:
+        steps:
+            - persist_to_workspace:
+                  root: ./
+                  paths:
+                      - desktop/build/libs/*
+                      - mercenaire/build/libs/*
+                      - server/build/libs/*
+                      - panel/src/dist/*
+                      - panel/src/assets/*
 executors:
     gradle: 
         docker:
@@ -97,6 +111,7 @@ jobs:
         executor: gradle
         steps:
             - checkout_restore_gradle_cache
+            - load_workspace
             - run: |
                 ./gradlew javadoc
                 mkdir "/home/circleci/project/panel/src/assets/documentation"
@@ -104,65 +119,50 @@ jobs:
                 do
                     cp -r "/home/circleci/project/$project/build/docs/javadoc" "/home/circleci/project/panel/src/assets/documentation/$project"
                 done
-            - persist_to_workspace:
-                  root: panel
-                  paths:
-                      - src/assets/*
+            - save_workspace
     copy_resources:
         docker:
             - image: koalaman/shellcheck-alpine:stable
         steps:
             - checkout
-            - attach_workspace:
-                  at: ./
+            - load_workspace
             - run: |
-                pwd
-                ls
                 for project in 'desktop' 'mercenaire' 'server'
                 do
                   ls /home/circleci/project/$project
                 done
-            - persist_to_workspace:
-                  root: panel
-                  paths:
-                      - src/assets/*
+            - save_workspace
     # builds
     desktop_build:
         executor: gradle
         steps:
             - checkout_restore_gradle_cache
+            - load_workspace
             - run: ./gradlew dist
-            - persist_to_workspace:
-                  root: ./
-                  paths:
-                      - desktop/build/libs/*
+            - save_workspace
     server_build:
         executor: gradle
         steps:
             - checkout_restore_gradle_cache
+            - load_workspace
             - run: ./gradlew server:build
-            - persist_to_workspace:
-                  root: ./
-                  paths:
-                      - server/build/libs/*
+            - save_workspace
     mercenaire_build:
         executor: gradle
         steps:
             - checkout_restore_gradle_cache
+            - load_workspace
             - run: ./gradlew mercenaire:build
-            - persist_to_workspace:
-                  root: ./
-                  paths:
-                      - mercenaire/build/libs/*
+            - save_workspace
     panel_build:
         executor: node
         steps:
             - checkout_restore_node_cache
-            - attach_workspace:
-                at: ./
+            - load_workspace
             - run: |
                   cd panel
                   npm run build:gh-pages
+            - save_workspace
 workflows:
     version: 2.1
     integration:
