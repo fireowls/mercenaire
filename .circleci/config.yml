@@ -25,6 +25,7 @@ commands:
                   root: ./
                   paths:
                       - desktop/build/libs/*
+                      - mercenaire/build/libs/*
                       - server/build/libs/*
                       - panel/src/dist/*
                       - panel/src/assets/ressources/*
@@ -197,12 +198,14 @@ workflows:
             - desktop_build:
                 requires:
                     - dependencies
+                    - server_build
             - server_build:
                 requires:
                     - dependencies
             - mercenaire_build:
                 requires:
                     - dependencies
+                    - desktop_build
             - copy_resources:
                 requires:
                     - desktop_build
