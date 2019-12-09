@@ -1,0 +1,51 @@
+
+task install(type: Exec) {
+	
+	commandLine 'npm'
+	args 'install'
+	standardOutput = new ByteArrayOutputStream()
+	ext.output = {
+		return standardOutput.toString()
+	}
+}
+
+task test(type: Exec) {
+	commandLine 'npm'
+	args 'run', 'test:ci'
+	standardOutput = new ByteArrayOutputStream()
+	ext.output = {
+		return standardOutput.toString()
+	}	
+}
+
+task lint(type: Exec) {
+	commandLine 'npm'
+	args 'run', 'lint'
+	standardOutput = new ByteArrayOutputStream()
+	ext.output = {	
+		return standardOutput.toString()
+	}
+}
+
+task e2e(type: Exec) {
+	commandLine 'npm'
+	args 'run', 'e2e:ci'
+	standardOutput = new ByteArrayOutputStream()
+	ext.output = {
+		return standardOutput.toString()
+	}
+}
+
+task build(type: Exec) {
+	commandLine 'npm'
+	args 'run', 'build:gh-pages'
+	standardOutput = new ByteArrayOutputStream()
+	ext.output = {
+		return standardOutput.toString()
+	}
+}
+
+task deploy {
+
+}
+

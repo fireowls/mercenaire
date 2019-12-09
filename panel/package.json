@@ -5,9 +5,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:gh-pages": "npm run build",
     "test": "ng test",
+    "test:ci": "npm run test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "e2e:ci": "npm run e2e"
   },
   "private": true,
   "dependencies": {
