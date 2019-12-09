@@ -97,7 +97,7 @@ jobs:
             - checkout_restore_node_cache
             - run: |
                   cd panel
-                  npm run e2e:c
+                  npm run e2e:ci
     # resources
     javadoc:
         executor: gradle
@@ -105,9 +105,25 @@ jobs:
             - checkout_restore_gradle_cache
             - run: |
                 ./gradlew javadoc
+                mkdir "/home/circleci/project/panel/src/assets/documentation"
                 for project in 'core' 'desktop' 'mercenaire' 'server'
                 do
-                    cp -r "/home/circleci/project/$project/build/docs/javadoc" "/home/circleci/project/panel/src/assets/$project"
+                    cp -r "/home/circleci/project/$project/build/docs/javadoc" "/home/circleci/project/panel/src/assets/documentation/$project"
+                done
+            - persist_to_workspace:
+                  root: ./
+                  paths:
+                      - panel/dist/*
+                      - panel/src/assets/*
+    copy_resources:
+        steps:
+            - checkout
+            - attach_workspace:
+                  at: ./
+            - run: |
+                for project in 'desktop' 'mercenaire' 'server'
+                do
+                    cp -r "/home/circleci/project/$project/build/libs/*" "/home/circleci/project/panel/src/assets/ressources/$project"
                 done
             - persist_to_workspace:
                   root: ./
@@ -133,7 +149,8 @@ jobs:
                 at: ./
             - run: |
                   cd panel
-                  ls src/assets
+                  ls src/assets/documentations/*
+                  ls src/assets/ressources/*
                   npm run build:gh-pages
 
 workflows:
