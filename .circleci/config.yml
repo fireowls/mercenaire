@@ -119,7 +119,7 @@ jobs:
             - run: |
                 for project in 'desktop' 'mercenaire' 'server'
                 do
-                  ls "/home/circleci/project/$project/*"
+                  ls /home/circleci/project/$project/
                 done
             - persist_to_workspace:
                   root: ./
@@ -196,13 +196,13 @@ workflows:
                     - dependencies
             - desktop_build:
                 requires:
-                    - desktop_test
+                    - dependencies
             - server_build:
                 requires:
-                    - server_test
+                    - dependencies
             - mercenaire_build:
                 requires:
-                    - mercenaire_test
+                    - dependencies
             - copy_resources:
                 requires:
                     - desktop_build
