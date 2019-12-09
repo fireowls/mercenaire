@@ -117,6 +117,7 @@ jobs:
             - attach_workspace:
                   at: ./
             - run: |
+                ls
                 for project in 'desktop' 'mercenaire' 'server'
                 do
                   ls /home/circleci/project/$project/
