@@ -128,7 +128,7 @@ jobs:
             - run: |
                 for project in 'desktop' 'mercenaire' 'server'
                 do
-                  cp -r "$project/build/libs/*" "panel/src/assets/ressources/"
+                  cp -r $project/build/libs/* "panel/src/assets/ressources/"
                 done
             - save_workspace
     # builds
@@ -139,7 +139,7 @@ jobs:
             - load_workspace
             - run: |
                 ./gradlew dist
-                cp -r "./desktop/build/libs/*.jar" "panel/src/assets/ressources/"
+                cp -r ./desktop/build/libs/* "panel/src/assets/ressources/"
             - save_workspace
     server_build:
         executor: gradle
@@ -148,7 +148,7 @@ jobs:
             - load_workspace
             - run: |
                 ./gradlew server:build
-                cp -r "./server/build/libs/*.jar" "panel/src/assets/ressources/"
+                cp -r ./server/build/libs/* "panel/src/assets/ressources/"
             - save_workspace
     mercenaire_build:
         executor: gradle
@@ -157,7 +157,7 @@ jobs:
             - load_workspace
             - run: |
                 ./gradlew mercenaire:build
-                cp -r "./mercenaire/build/libs/*.jar" "panel/src/assets/ressources/"
+                cp -r ./mercenaire/build/libs/* "panel/src/assets/ressources/"
             - save_workspace
     panel_build:
         executor: node
