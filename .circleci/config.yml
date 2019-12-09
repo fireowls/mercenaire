@@ -216,3 +216,6 @@ workflows:
             - deploy-gh-pages:
                 requires:
                     - panel_build
+                    - panel_lint
+                    - panel_test
+                    - panel_e2e
