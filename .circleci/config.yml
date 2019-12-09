@@ -165,6 +165,9 @@ workflows:
             - server_test:
                 requires:
                     - dependencies
+            - javadoc:
+                requires:
+                    - dependencies
             - desktop_build:
                 requires:
                     - desktop_test
@@ -176,3 +179,4 @@ workflows:
                     - install
                     - desktop_build
                     - server_build
+                    - javadoc
