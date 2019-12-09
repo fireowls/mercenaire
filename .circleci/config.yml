@@ -24,9 +24,6 @@ commands:
             - persist_to_workspace:
                   root: ./
                   paths:
-                      - desktop/build/*
-                      - mercenaire/build/*
-                      - server/build/*
                       - panel/src/dist/*
                       - panel/src/assets/ressources/*
                       - panel/src/assets/documentation/*
@@ -140,21 +137,27 @@ jobs:
         steps:
             - checkout_restore_gradle_cache
             - load_workspace
-            - run: ./gradlew dist
+            - run: |
+                ./gradlew dist
+                cp -r "desktop/build/libs/*.jar" "panel/src/assets/ressources/"
             - save_workspace
     server_build:
         executor: gradle
         steps:
             - checkout_restore_gradle_cache
             - load_workspace
-            - run: ./gradlew server:build
+            - run: |
+                ./gradlew server:build
+                cp -r "server/build/libs/*.jar" "panel/src/assets/ressources/"
             - save_workspace
     mercenaire_build:
         executor: gradle
         steps:
             - checkout_restore_gradle_cache
             - load_workspace
-            - run: ./gradlew mercenaire:build
+            - run: |
+                ./gradlew mercenaire:build
+                cp -r "mercenaire/build/libs/*.jar" "panel/src/assets/ressources/"
             - save_workspace
     panel_build:
         executor: node
@@ -197,20 +200,17 @@ workflows:
                     - dependencies
             - desktop_build:
                 requires:
-                    - mercenaire_build
+                    - dependencies
             - server_build:
                 requires:
-                    - desktop_build
+                    - dependencies
             - mercenaire_build:
                 requires:
                     - dependencies
-            - copy_resources:
-                requires:
-                    - desktop_build
-                    - server_build
-                    - mercenaire_build
             - panel_build:
                 requires:
                     - install
-                    - copy_resources
+                    - mercenaire_build
+                    - server_build
+                    - desktop_build
                     - javadoc
