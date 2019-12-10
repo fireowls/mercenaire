@@ -121,11 +121,17 @@ jobs:
     deploy-gh-pages:
         executor: node
         steps:
-            - checkout_restore_node_cache
-            - load_workspace
-            - run: |
-                cd panel
-                npm run deploy:gh-pages -- -t $GITHUB_TOKEN
+            - run:
+                name: Install and configure dependencies
+                command: |
+                    npm install -g --silent gh-pages@2.0.1
+                    git config user.email "circleci@circleci"
+                    git config user.name "ci-build"
+            - add_ssh_keys:
+                fingerprints: $GITHUB_TOKEN@github.com:fireowls/mercenaire.git
+            - run:
+                name: Deploy docs to gh-pages branch
+                command: gh-pages --dotfiles --message "[skip ci] Updates" --dist panel/dist/panel
 
     # builds
     desktop_build:
