@@ -123,12 +123,13 @@ jobs:
     deploy-gh-pages:
         executor: node
         steps:
+            - checkout
             - run:
                 name: Install and configure dependencies
                 command: |
                     cd panel
-                    # git config user.email "circleci@circleci"
-                    # git config user.name "ci-build"
+                    git config user.email "circleci@circleci"
+                    git config user.name "ci-build"
             - add_ssh_keys:
                 fingerprints: a9:e6:62:2e:6a:7a:fc:b3:4a:70:5b:9a:8d:d4:13:da
             - run:
