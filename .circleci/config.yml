@@ -120,7 +120,7 @@ jobs:
                     cp -r "/home/circleci/project/$project/build/docs/javadoc" "/home/circleci/project/panel/src/assets/documentation/$project"
                 done
             - save_workspace
-    deploy-gh-pages:
+    deploy_gh_pages:
         executor: node
         steps:
             - checkout
@@ -213,6 +213,7 @@ workflows:
             - desktop_build:
                 requires:
                     - desktop_test
+                    - core_test
             - server_build:
                 requires:
                     - server_test
@@ -226,9 +227,12 @@ workflows:
                     - server_build
                     - desktop_build
                     - javadoc
-            - deploy-gh-pages:
+            - deploy_gh_pages:
                 requires:
                     - panel_build
                     - panel_lint
                     - panel_test
                     - panel_e2e
+                filter:
+                    branches:
+                        only: master
