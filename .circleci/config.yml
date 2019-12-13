@@ -131,6 +131,10 @@ jobs:
                     cd panel
                     git config user.email "circleci@circleci"
                     git config user.name "ci-build"
+                    cd dist
+                    ls
+                    cd panel
+                    ls
             - add_ssh_keys:
                 fingerprints: a9:e6:62:2e:6a:7a:fc:b3:4a:70:5b:9a:8d:d4:13:da
             - run:
@@ -178,10 +182,6 @@ jobs:
             - run: |
                   cd panel
                   npm run build:gh-pages
-                  cd dist
-                  ls
-                  cd panel
-                  ls
             - save_workspace
 
 workflows:
