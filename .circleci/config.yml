@@ -124,6 +124,7 @@ jobs:
         executor: node
         steps:
             - checkout
+            - load_workspace
             - run:
                 name: Install and configure dependencies
                 command: |
