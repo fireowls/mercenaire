@@ -130,7 +130,7 @@ jobs:
                 command: |
                     git config user.email "circleci@circleci"
                     git config user.name "ci-build"
-                    cp .circleci panel/dist/panel/
+                    cp -r .circleci panel/dist/panel/
             - add_ssh_keys:
                 fingerprints: a9:e6:62:2e:6a:7a:fc:b3:4a:70:5b:9a:8d:d4:13:da
             - run:
@@ -184,42 +184,94 @@ workflows:
     version: 2.1
     integration:
         jobs:
-            - dependencies
-            - install
+            - dependencies:
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
+            - install:
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - panel_lint:
                 requires:
                     - install
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - panel_test:
                 requires:
                     - install
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - panel_e2e:
                 requires:
                     - install
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - mercenaire_test:
                 requires:
                     - dependencies
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - core_test:
                 requires:
                     - dependencies
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - desktop_test:
                 requires:
                     - dependencies
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - server_test:
                 requires:
                     - dependencies
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - javadoc:
                 requires:
                     - dependencies
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - desktop_build:
                 requires:
                     - desktop_test
                     - core_test
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - server_build:
                 requires:
                     - server_test
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - mercenaire_build:
                 requires:
                     - mercenaire_test
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - panel_build:
                 requires:
                     - install
@@ -227,6 +279,10 @@ workflows:
                     - server_build
                     - desktop_build
                     - javadoc
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
             - deploy_gh_pages:
                 requires:
                     - panel_build
