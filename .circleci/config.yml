@@ -233,6 +233,6 @@ workflows:
                     - panel_lint
                     - panel_test
                     - panel_e2e
-                filter:
+                filters:
                     branches:
                         only: master
