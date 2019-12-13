@@ -40,6 +40,7 @@ executors:
     node_browsers:
         docker:
             - image: circleci/node:10-browsers
+
 jobs:
     # install
     install:
@@ -104,6 +105,7 @@ jobs:
             - run: |
                   cd panel
                   npm run e2e:ci
+
     # resources
     javadoc:
         executor: gradle
@@ -131,7 +133,9 @@ jobs:
                 fingerprints: a9:e6:62:2e:6a:7a:fc:b3:4a:70:5b:9a:8d:d4:13:da
             - run:
                 name: Deploy docs to gh-pages branch
-                command: gh-pages --dotfiles --message "[skip ci] Updates" --dist panel/dist/panel
+                command: |
+                    cd panel
+                    npx gh-pages --dotfiles --message "[Circle CI] Updates" --dist dist/panel
 
     # builds
     desktop_build:
@@ -173,6 +177,7 @@ jobs:
                   cd panel
                   npm run build:gh-pages
             - save_workspace
+
 workflows:
     version: 2.1
     integration:

@@ -10,8 +10,7 @@
     "test:ci": "npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "e2e:ci": "npm run e2e -- --protractor-config=./e2e/protractor-ci.conf.js",
-    "deploy:gh-pages": "deploy-directory-on-branch-to-gh-pages -d dist/panel -b gh-pages"
+    "e2e:ci": "npm run e2e -- --protractor-config=./e2e/protractor-ci.conf.js"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +35,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "gh-pages": "^2.0.1",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
