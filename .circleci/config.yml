@@ -24,7 +24,7 @@ commands:
             - persist_to_workspace:
                   root: ./
                   paths:
-                      - panel/src/dist/panel/*
+                      - panel/dist/panel/*
                       - panel/src/assets/ressources/*
                       - panel/src/assets/documentation/*
 executors:
@@ -131,10 +131,6 @@ jobs:
                     cd panel
                     git config user.email "circleci@circleci"
                     git config user.name "ci-build"
-                    cd dist
-                    ls
-                    cd panel
-                    ls
             - add_ssh_keys:
                 fingerprints: a9:e6:62:2e:6a:7a:fc:b3:4a:70:5b:9a:8d:d4:13:da
             - run:
