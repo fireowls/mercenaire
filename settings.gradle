@@ -1,1 +1,1 @@
-include 'desktop', 'core', 'mercenaire', 'server'
+include 'desktop', 'core', 'mercenaire', 'server', 'panel'
