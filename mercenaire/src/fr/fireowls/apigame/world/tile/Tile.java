@@ -14,7 +14,7 @@ public abstract class Tile extends GameObject {
 
     private String id;
     private Tiles type;
-    private File resources;
+    private String resources;
 
     private SpriteSheet spriteSheet;
     private Location location;
@@ -24,7 +24,7 @@ public abstract class Tile extends GameObject {
         this.id = type.getId();
         this.type = type;
         this.location = location;
-        this.resources = type.getResourcesFile();
+        this.resources = type.getResources();
         this.spriteSheet = new SpriteSheet(resources);
     }
 
@@ -43,7 +43,7 @@ public abstract class Tile extends GameObject {
         return id;
     }
 
-    public void setResources(File resources) {
+    public void setResources(String resources) {
         this.resources = resources;
         this.spriteSheet = new SpriteSheet(resources);
     }
@@ -56,7 +56,7 @@ public abstract class Tile extends GameObject {
         return spriteSheet;
     }
 
-    public File getResources() {
+    public String getResources() {
         return resources;
     }
 

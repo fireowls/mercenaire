@@ -1,0 +1,238 @@
+version: 2.1
+
+commands:
+    checkout_restore_gradle_cache:
+        steps:
+            - checkout
+            - restore_cache:
+                keys:
+                    - v1-dependencies-{{ checksum "build.gradle" }}
+                    - v1-dependencies-
+    checkout_restore_node_cache:
+        steps:
+            - checkout
+            - restore_cache:
+                keys:
+                    - node-{{ checksum "/home/circleci/project/panel/package-lock.json" }}
+                    - node-
+    load_workspace:
+        steps:
+            - attach_workspace:
+                  at: ./
+    save_workspace:
+        steps:
+            - persist_to_workspace:
+                  root: ./
+                  paths:
+                      - panel/dist/panel/*
+                      - panel/src/assets/ressources/*
+                      - panel/src/assets/documentation/*
+executors:
+    gradle: 
+        docker:
+            - image: circleci/openjdk:8-jdk
+        environment:
+            JVM_OPTS: -Xmx3200m
+            TERM: dumb
+    node:
+        docker:
+            - image: circleci/node:10.15.3
+    node_browsers:
+        docker:
+            - image: circleci/node:10-browsers
+
+jobs:
+    # install
+    install:
+        executor: node
+        steps:
+            - checkout_restore_node_cache
+            - run: |
+                cd panel
+                npm install
+            - save_cache:
+                paths:
+                    - /home/circleci/project/panel/node_modules
+                key: node-{{ checksum "/home/circleci/project/panel/package-lock.json" }}
+    dependencies:
+        executor: gradle
+        steps:
+            - checkout_restore_gradle_cache
+            - run: ./gradlew dependencies
+            - save_cache:
+                paths:
+                    - ~/.gradle
+                key: v1-dependencies-{{ checksum "build.gradle" }}
+    # tests
+    core_test:
+        executor: gradle
+        steps:
+            - checkout_restore_gradle_cache
+            - run: ./gradlew core:test
+    desktop_test:
+        executor: gradle
+        steps:
+            - checkout_restore_gradle_cache
+            - run: ./gradlew desktop:test
+    mercenaire_test:
+        executor: gradle
+        steps:
+            - checkout_restore_gradle_cache
+            - run: ./gradlew mercenaire:test
+    server_test:
+        executor: gradle
+        steps:
+            - checkout_restore_gradle_cache
+            - run: ./gradlew server:test
+    panel_lint:
+        executor: node
+        steps:
+            - checkout_restore_node_cache
+            - run: |
+                  cd panel
+                  npm run lint
+    panel_test:
+        executor: node_browsers
+        steps:
+            - checkout_restore_node_cache
+            - run: |
+                  cd panel
+                  npm run test:ci
+    panel_e2e:
+        executor: node_browsers
+        steps:
+            - checkout_restore_node_cache
+            - run: |
+                  cd panel
+                  npm run e2e:ci
+
+    # resources
+    javadoc:
+        executor: gradle
+        steps:
+            - checkout_restore_gradle_cache
+            - load_workspace
+            - run: |
+                ./gradlew javadoc
+                mkdir "/home/circleci/project/panel/src/assets/documentation"
+                for project in 'core' 'desktop' 'mercenaire' 'server'
+                do
+                    cp -r "/home/circleci/project/$project/build/docs/javadoc" "/home/circleci/project/panel/src/assets/documentation/$project"
+                done
+            - save_workspace
+    deploy_gh_pages:
+        executor: node
+        steps:
+            - checkout
+            - load_workspace
+            - run:
+                name: Install and configure dependencies
+                command: |
+                    cd panel
+                    git config user.email "circleci@circleci"
+                    git config user.name "ci-build"
+            - add_ssh_keys:
+                fingerprints: a9:e6:62:2e:6a:7a:fc:b3:4a:70:5b:9a:8d:d4:13:da
+            - run:
+                name: Deploy docs to gh-pages branch
+                command: |
+                    cd panel
+                    npx gh-pages --dotfiles --message "[Circle CI] Updates" --dist dist/panel
+
+    # builds
+    desktop_build:
+        executor: gradle
+        steps:
+            - checkout_restore_gradle_cache
+            - load_workspace
+            - run: |
+                ./gradlew dist
+                mkdir panel/src/assets/ressources/
+                cp -r ./desktop/build/libs/* "panel/src/assets/ressources/"
+            - save_workspace
+    server_build:
+        executor: gradle
+        steps:
+            - checkout_restore_gradle_cache
+            - load_workspace
+            - run: |
+                ./gradlew server:build
+                mkdir panel/src/assets/ressources/
+                cp -r ./server/build/libs/* "panel/src/assets/ressources/"
+            - save_workspace
+    mercenaire_build:
+        executor: gradle
+        steps:
+            - checkout_restore_gradle_cache
+            - load_workspace
+            - run: |
+                ./gradlew mercenaire:build
+                mkdir panel/src/assets/ressources/
+                cp -r ./mercenaire/build/libs/* "panel/src/assets/ressources/"
+            - save_workspace
+    panel_build:
+        executor: node
+        steps:
+            - checkout_restore_node_cache
+            - load_workspace
+            - run: |
+                  cd panel
+                  npm run build:gh-pages
+            - save_workspace
+
+workflows:
+    version: 2.1
+    integration:
+        jobs:
+            - dependencies
+            - install
+            - panel_lint:
+                requires:
+                    - install
+            - panel_test:
+                requires:
+                    - install
+            - panel_e2e:
+                requires:
+                    - install
+            - mercenaire_test:
+                requires:
+                    - dependencies
+            - core_test:
+                requires:
+                    - dependencies
+            - desktop_test:
+                requires:
+                    - dependencies
+            - server_test:
+                requires:
+                    - dependencies
+            - javadoc:
+                requires:
+                    - dependencies
+            - desktop_build:
+                requires:
+                    - desktop_test
+                    - core_test
+            - server_build:
+                requires:
+                    - server_test
+            - mercenaire_build:
+                requires:
+                    - mercenaire_test
+            - panel_build:
+                requires:
+                    - install
+                    - mercenaire_build
+                    - server_build
+                    - desktop_build
+                    - javadoc
+            - deploy_gh_pages:
+                requires:
+                    - panel_build
+                    - panel_lint
+                    - panel_test
+                    - panel_e2e
+                filters:
+                    branches:
+                        only: master
