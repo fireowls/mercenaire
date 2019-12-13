@@ -24,7 +24,7 @@ commands:
             - persist_to_workspace:
                   root: ./
                   paths:
-                      - panel/src/dist/*
+                      - panel/src/dist/panel/*
                       - panel/src/assets/ressources/*
                       - panel/src/assets/documentation/*
 executors:
