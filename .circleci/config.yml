@@ -178,6 +178,10 @@ jobs:
             - run: |
                   cd panel
                   npm run build:gh-pages
+                  cd dist
+                  ls
+                  cd panel
+                  ls
             - save_workspace
 
 workflows:
