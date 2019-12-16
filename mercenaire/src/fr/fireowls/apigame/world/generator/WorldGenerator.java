@@ -32,13 +32,13 @@ public class WorldGenerator extends GameObject {
     @Override
     protected void onUpdate(float delta) {
         manager.update(delta);
-        for (ChunkLoader loader : loaderList) {
+        world.getEntityManager().getEntities().stream().filter(x -> x instanceof ChunkLoader).forEach(loader -> {
             for (int row = -(CHUNK_LOADER_RADIUS / 2) ; row <= (CHUNK_LOADER_RADIUS / 2) ; row++) {
                 for (int col = -(CHUNK_LOADER_RADIUS / 2) ; col <= (CHUNK_LOADER_RADIUS / 2) ; col++) {
-                    manager.loadChunk(new ChunkPosition(loader.getChunkPosition().getX() + col, loader.getChunkPosition().getY() + row));
+                    manager.loadChunk(new ChunkPosition(((ChunkLoader) loader).getChunkPosition().getX() + col, ((ChunkLoader) loader).getChunkPosition().getY() + row));
                 }
             }
-        }
+        });
     }
 
     @Override

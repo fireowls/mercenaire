@@ -19,10 +19,20 @@ public class EntityManager extends GameObject {
 
     public void addEntity(Entity entity) {
         this.entities.add(entity);
+        switch (entity.getState()) {
+            case WAITING:
+            case STOP:
+                entity.create();
+                break;
+            case PAUSE:
+                entity.resume();
+                break;
+        }
     }
 
     public void removeEntity(Entity entity) {
         this.entities.remove(entity);
+        entity.dispose();
     }
 
     @Override
@@ -53,5 +63,13 @@ public class EntityManager extends GameObject {
     @Override
     protected void onDispose() {
         entities.stream().forEach(Entity::dispose);
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public List<Entity> getEntities() {
+        return entities;
     }
 }

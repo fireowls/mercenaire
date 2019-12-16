@@ -69,4 +69,8 @@ public class World extends GameObject {
     public WorldGenerator getGenerator() {
         return generator;
     }
+
+    public EntityManager getEntityManager() {
+        return manager;
+    }
 }
