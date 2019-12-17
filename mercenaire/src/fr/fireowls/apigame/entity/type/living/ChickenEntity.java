@@ -1,11 +1,12 @@
-package fr.fireowls.apigame.entity.shape;
+package fr.fireowls.apigame.entity.type.living;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import fr.fireowls.apigame.entity.type.EntityType;
 
-public class HumanShape extends EntityShape {
+public class ChickenEntity extends LivingEntity {
 
-    public HumanShape() {
-        super(ShapeType.HUMAN);
+    public ChickenEntity() {
+        super(EntityType.CHICKEN, DEFAULT_MAX_HEALTH, DEFAULT_MAX_SPEED, DEFAULT_ACCELERATION, DEFAULT_DECELERATION);
     }
 
     @Override

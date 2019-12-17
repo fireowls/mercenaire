@@ -1,10 +1,13 @@
 package fr.fireowls.apigame.entity.type;
 
 import fr.fireowls.apigame.entity.Entity;
+import fr.fireowls.apigame.entity.type.living.ChickenEntity;
+import fr.fireowls.apigame.entity.type.living.HumanEntity;
 
 public enum EntityType {
 
-    PLAYER(Player.class);
+    HUMAN(HumanEntity.class),
+    CHICKEN(ChickenEntity.class);
 
     private Class<? extends Entity> c;
 
