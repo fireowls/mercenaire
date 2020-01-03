@@ -5,15 +5,16 @@ import fr.fireowls.apigame.entity.type.EntityType;
 
 public abstract class MovableEntity extends Entity implements Movable {
 
-    public static final double DEFAULT_MAX_SPEED = 5;
-    public static final double DEFAULT_ACCELERATION = 0.5;
-    public static final double DEFAULT_DECELERATION = 0.1;
+    public static final double DEFAULT_MAX_SPEED = 7;
+    public static final double DEFAULT_ACCELERATION = 0.2;
+    public static final double DEFAULT_DECELERATION = 0.5;
 
     protected double speed;
     protected double maxSpeed;
     protected double acceleration;
     protected double deceleration;
     protected Direction direction;
+    protected Direction transitionDirection;
 
     public MovableEntity(EntityType type, double maxSpeed, double acceleration, double deceleration) {
         super(type);
@@ -22,15 +23,27 @@ public abstract class MovableEntity extends Entity implements Movable {
         this.acceleration = acceleration;
         this.deceleration = deceleration;
         direction = Direction.STATIC;
+        transitionDirection = Direction.STATIC;
         this.setOnUpdate(delta -> {
+
             speed = direction == Direction.STATIC ? Math.max(speed - deceleration, 0) : Math.min(speed + acceleration, maxSpeed);
-            location.addX(direction.getX() * speed * delta);
-            location.addY(direction.getY() * speed * delta);
+
+            if (direction == Direction.STATIC) {
+                location.addX(transitionDirection.getX() * speed * delta);
+                location.addY(transitionDirection.getY() * speed * delta);
+            } else {
+                location.addX(direction.getX() * speed * delta);
+                location.addY(direction.getY() * speed * delta);
+            }
+
         });
     }
 
     @Override
     public void move(Direction direction) {
+        if (this.direction != Direction.STATIC) {
+            transitionDirection = this.direction;
+        }
         this.direction = direction;
     }
 

@@ -41,7 +41,7 @@ public class HumanEntity extends LivingEntity implements ChunkLoader {
 
     @Override
     protected void onDispose() {
-
+        spriteSheet.dispose();
     }
 
     @Override

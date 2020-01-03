@@ -50,7 +50,7 @@ public class EntityManager extends GameObject {
         entities.forEach(Localizable::dispose);
     }
 
-    public Localizable spawnEntity(EntityType type, Location location) {
+    public Entity spawnEntity(EntityType type, Location location) {
         try {
             Entity entity = type.getEntityClass().getConstructor().newInstance();
             entity.setLocation(location);
@@ -60,8 +60,8 @@ public class EntityManager extends GameObject {
             return entity;
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public void killEntity(Entity entity) {

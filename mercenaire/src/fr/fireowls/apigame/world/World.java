@@ -1,7 +1,10 @@
 package fr.fireowls.apigame.world;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import fr.fireowls.apigame.entity.Entity;
 import fr.fireowls.apigame.entity.EntityManager;
+import fr.fireowls.apigame.entity.type.EntityType;
+import fr.fireowls.apigame.utils.Location;
 import fr.fireowls.apigame.utils.game.GameObject;
 import fr.fireowls.apigame.world.generator.WorldGenerator;
 import fr.fireowls.apigame.world.tile.TileInfo;
@@ -56,6 +59,10 @@ public class World extends GameObject {
     protected void onDispose() {
         this.generator.dispose();
         this.manager.dispose();
+    }
+
+    public Entity spawnEntity(EntityType type, Location location) {
+        return getEntityManager().spawnEntity(type, location);
     }
 
     public String getName() {

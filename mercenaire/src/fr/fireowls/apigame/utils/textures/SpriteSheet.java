@@ -80,6 +80,14 @@ public class SpriteSheet {
         this.animationClock += delta;
     }
 
+    public void dispose() {
+        for (TextureInfo info : textureInfos) {
+            for (TextureRegion region : info.getFrames()) {
+                region.getTexture().dispose();
+            }
+        }
+    }
+
     public TextureRegion getTexture() {
         return this.textureInfos.get(selectedTexture).getAnimation() != null ?
                 this.textureInfos.get(selectedTexture).getAnimation().getKeyFrame(animationClock) :
