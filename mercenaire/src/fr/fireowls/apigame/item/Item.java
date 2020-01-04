@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item;
 
+import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.ItemType;
 import fr.fireowls.apigame.item.attribut.Rarity;
@@ -9,7 +10,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
  * @version 1.0.0
  * Classe de base de tout les items du jeu
  */
-public class Item {
+public abstract class Item {
     private ItemType type;
     private Rarity rarity;
     private ItemMeta meta;
@@ -41,5 +42,8 @@ public class Item {
         res+="\t"+rarity.toString().toLowerCase()+"\n";
         return res;
     }
+
+    public abstract boolean hasMaterial(Inventory inv,int nb);
+    public abstract int getMaxStackValue();
 
 }

@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.equipment.quiver.quivers;
 
+import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.Craftable;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.Rarity;
@@ -20,7 +21,12 @@ public class SmallQuiver extends Quiver implements Craftable {
     }
 
     @Override
-    public boolean hasMaterial() {
+    public boolean hasMaterial(Inventory inv,int nb) {
         return false;
+    }
+
+    @Override
+    public int getMaxStackValue() {
+        return 1;
     }
 }

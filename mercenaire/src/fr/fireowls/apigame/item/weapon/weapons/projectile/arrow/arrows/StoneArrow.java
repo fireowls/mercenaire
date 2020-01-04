@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.weapon.weapons.projectile.arrow.arrows;
 
+import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.Craftable;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.Rarity;
@@ -21,7 +22,7 @@ public class StoneArrow extends Arrow implements Craftable, Sellable {
     }
 
     @Override
-    public boolean hasMaterial() {
+    public boolean hasMaterial(Inventory inv,int nb) {
         return false;
     }
 
@@ -33,5 +34,10 @@ public class StoneArrow extends Arrow implements Craftable, Sellable {
     @Override
     public double getPrice() {
         return 5;
+    }
+
+    @Override
+    public int getMaxStackValue() {
+        return 1;
     }
 }

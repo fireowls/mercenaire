@@ -5,7 +5,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.weapon.Weapon;
 import fr.fireowls.apigame.item.weapon.WeaponType;
 
-public class WarHammer extends Weapon {
+public abstract class WarHammer extends Weapon {
 
     protected WarHammerType type;
 

@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.weapon.weapons;
 
+import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.attribut.Sellable;
@@ -33,5 +34,15 @@ public class TigerPaw extends Weapon implements Sellable {
     @Override
     public double getPrice() {
         return 1000000;
+    }
+
+    @Override
+    public boolean hasMaterial(Inventory inv,int nb) {
+        return false;
+    }
+
+    @Override
+    public int getMaxStackValue() {
+        return 1;
     }
 }

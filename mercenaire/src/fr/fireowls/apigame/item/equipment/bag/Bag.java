@@ -5,7 +5,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.equipment.Equipment;
 import fr.fireowls.apigame.item.equipment.EquipmentType;
 
-public class Bag extends Equipment {
+public abstract class Bag extends Equipment {
 
     protected BagType type;
     protected int capacity;

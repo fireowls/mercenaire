@@ -5,7 +5,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.tool.Tool;
 import fr.fireowls.apigame.item.tool.ToolType;
 
-public class Hoe extends Tool {
+public abstract class Hoe extends Tool {
 
     protected HoeType type;
 

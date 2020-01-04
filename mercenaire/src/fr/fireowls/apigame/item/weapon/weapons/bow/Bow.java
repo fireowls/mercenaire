@@ -5,7 +5,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.weapon.Weapon;
 import fr.fireowls.apigame.item.weapon.WeaponType;
 
-public class Bow extends Weapon {
+public abstract class Bow extends Weapon {
 
     protected BowType type;
 

@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.consumable.food.foods;
 
+import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.Craftable;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.Rarity;
@@ -27,7 +28,7 @@ public class Bread extends Food implements Craftable, Sellable {
     }
 
     @Override
-    public boolean hasMaterial() {
+    public boolean hasMaterial(Inventory inv,int nb) {
         return false;
     }
 
@@ -39,5 +40,10 @@ public class Bread extends Food implements Craftable, Sellable {
     @Override
     public double getPrice() {
         return 0;
+    }
+
+    @Override
+    public int getMaxStackValue() {
+        return type.getMaxStack();
     }
 }

@@ -8,7 +8,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class Consume extends Item implements Consumable {
+public abstract class Consume extends Item implements Consumable {
 
     protected ConsumeType type;
 

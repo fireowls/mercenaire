@@ -5,7 +5,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.tool.Tool;
 import fr.fireowls.apigame.item.tool.ToolType;
 
-public class Axe extends Tool {
+public abstract class Axe extends Tool {
 
     protected AxeType type;
 

@@ -6,7 +6,7 @@ import fr.fireowls.apigame.item.equipment.Equipment;
 import fr.fireowls.apigame.item.equipment.EquipmentType;
 import fr.fireowls.apigame.item.weapon.weapons.projectile.Projectile;
 
-public class Quiver extends Equipment {
+public abstract class Quiver extends Equipment {
 
     protected QuiverType type;
     protected Projectile[] slots;

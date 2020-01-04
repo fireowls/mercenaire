@@ -1,11 +1,14 @@
 package fr.fireowls.apigame.item.material.materials;
 
+import fr.fireowls.apigame.craft.forge.ForgeRecipe;
+import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.Craftable;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.attribut.Sellable;
 import fr.fireowls.apigame.item.material.Material;
 import fr.fireowls.apigame.item.material.MaterialType;
+import fr.fireowls.apigame.item.utils.HasMaterial;
 
 public class IronIngot extends Material implements Craftable, Sellable {
 
@@ -19,8 +22,8 @@ public class IronIngot extends Material implements Craftable, Sellable {
     }
 
     @Override
-    public boolean hasMaterial() {
-        return false;
+    public boolean hasMaterial(Inventory inv,int nb) {
+        return HasMaterial.hasMat(ForgeRecipe.getItemRecipe(this.getClass()),inv,nb);
     }
 
     @Override
@@ -31,5 +34,10 @@ public class IronIngot extends Material implements Craftable, Sellable {
     @Override
     public double getPrice() {
         return 5;
+    }
+
+    @Override
+    public int getMaxStackValue() {
+        return type.getMaxStack();
     }
 }

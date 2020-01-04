@@ -5,7 +5,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.equipment.armor.Armor;
 import fr.fireowls.apigame.item.equipment.armor.ArmorType;
 
-public class Boot extends Armor {
+public abstract class Boot extends Armor {
     protected BootType type;
     /**
      * Constructeur d'item

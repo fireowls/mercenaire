@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.weapon.weapons.crossbow.crossbows;
 
+import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.Craftable;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.Rarity;
@@ -22,7 +23,7 @@ public class WoodenCrossbow extends Crossbow implements Craftable, Sellable {
     }
 
     @Override
-    public boolean hasMaterial() {
+    public boolean hasMaterial(Inventory inv,int nb) {
         return false;
     }
 
@@ -34,5 +35,10 @@ public class WoodenCrossbow extends Crossbow implements Craftable, Sellable {
     @Override
     public double getPrice() {
         return 0;
+    }
+
+    @Override
+    public int getMaxStackValue() {
+        return 1;
     }
 }

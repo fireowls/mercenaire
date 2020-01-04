@@ -5,7 +5,7 @@ import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.ItemType;
 import fr.fireowls.apigame.item.attribut.Rarity;
 
-public class Material extends Item {
+public abstract class Material extends Item {
 
     protected int amount;
     protected final int MAX_STACK;

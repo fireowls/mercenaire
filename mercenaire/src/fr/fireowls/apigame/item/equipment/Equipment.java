@@ -5,7 +5,7 @@ import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.ItemType;
 import fr.fireowls.apigame.item.attribut.Rarity;
 
-public class Equipment extends Item {
+public abstract class Equipment extends Item {
 
     protected EquipmentType type;
 

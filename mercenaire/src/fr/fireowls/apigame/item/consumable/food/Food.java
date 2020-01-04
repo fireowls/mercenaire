@@ -7,7 +7,7 @@ import fr.fireowls.apigame.item.consumable.ConsumeType;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class Food extends Consume {
+public abstract class Food extends Consume {
 
     protected FoodType type;
     protected int amount;

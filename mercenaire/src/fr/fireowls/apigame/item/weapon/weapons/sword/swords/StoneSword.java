@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.weapon.weapons.sword.swords;
 
+import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.Craftable;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.Rarity;
@@ -32,7 +33,7 @@ public class StoneSword extends Sword implements Craftable, Sellable {
      * @return false si les materiaux nécassiares ne sont pas dans l'inventaire du joueur, sinon true
      */
     @Override
-    public boolean hasMaterial() {
+    public boolean hasMaterial(Inventory inv,int nb) {
         return false;
     }
 
@@ -50,5 +51,10 @@ public class StoneSword extends Sword implements Craftable, Sellable {
     @Override
     public double getPrice() {
         return 5;
+    }
+
+    @Override
+    public int getMaxStackValue() {
+        return 1;
     }
 }

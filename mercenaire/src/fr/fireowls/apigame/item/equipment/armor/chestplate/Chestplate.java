@@ -5,7 +5,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.equipment.armor.Armor;
 import fr.fireowls.apigame.item.equipment.armor.ArmorType;
 
-public class Chestplate extends Armor {
+public abstract class Chestplate extends Armor {
 
     protected ChestplateType type;
 

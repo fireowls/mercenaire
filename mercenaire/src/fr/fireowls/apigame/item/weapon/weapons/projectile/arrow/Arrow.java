@@ -5,7 +5,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.weapon.weapons.projectile.Projectile;
 import fr.fireowls.apigame.item.weapon.weapons.projectile.ProjectileType;
 
-public class Arrow extends Projectile {
+public abstract class Arrow extends Projectile {
 
     protected ArrowType type;
 

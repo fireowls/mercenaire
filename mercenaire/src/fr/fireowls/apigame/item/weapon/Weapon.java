@@ -10,7 +10,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
  * @version 1.0.0
  * Classe de base de tout les armes du jeu
  */
-public class Weapon extends Item {
+public abstract class Weapon extends Item {
     /**
      * Dégâts de l'arme
      */
