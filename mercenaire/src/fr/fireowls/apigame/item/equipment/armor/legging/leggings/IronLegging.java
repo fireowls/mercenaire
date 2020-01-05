@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.equipment.armor.legging.leggings;
 
+import fr.fireowls.apigame.craft.forge.ForgeRecipe;
 import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.Craftable;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
@@ -7,6 +8,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.attribut.Sellable;
 import fr.fireowls.apigame.item.equipment.armor.legging.Legging;
 import fr.fireowls.apigame.item.equipment.armor.legging.LeggingType;
+import fr.fireowls.apigame.item.utils.HasMaterial;
 
 public class IronLegging extends Legging implements Craftable, Sellable {
     /**
@@ -23,7 +25,7 @@ public class IronLegging extends Legging implements Craftable, Sellable {
 
     @Override
     public boolean hasMaterial(Inventory inv,int nb) {
-        return false;
+        return HasMaterial.hasMat(ForgeRecipe.getItemRecipe(this.getClass()),inv,nb);
     }
 
     @Override

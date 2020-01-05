@@ -7,10 +7,20 @@ import fr.fireowls.apigame.item.attribut.Sellable;
 import fr.fireowls.apigame.item.material.Material;
 import fr.fireowls.apigame.item.material.MaterialType;
 
-public class TigerClaw extends Material implements Sellable {
+public class String extends Material implements Sellable {
 
-    public TigerClaw() {
-        super(Rarity.LEGENDARY, MaterialType.TIGERCLAW,new ItemMeta("tigerClaw.json"));
+    public String() {
+        super(Rarity.COMMON, MaterialType.STRING, new ItemMeta("string.json"));
+    }
+
+    @Override
+    public boolean hasMaterial(Inventory inv, int nb) {
+        return false;
+    }
+
+    @Override
+    public int getMaxStackValue() {
+        return type.getMaxStack();
     }
 
     @Override
@@ -20,16 +30,6 @@ public class TigerClaw extends Material implements Sellable {
 
     @Override
     public double getPrice() {
-        return 10000;
-    }
-
-    @Override
-    public boolean hasMaterial(Inventory inv,int nb) {
-        return false;
-    }
-
-    @Override
-    public int getMaxStackValue() {
-        return type.getMaxStack();
+        return 0;
     }
 }

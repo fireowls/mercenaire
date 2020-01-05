@@ -1,5 +1,6 @@
 package fr.fireowls.apigame.item.material.materials;
 
+import fr.fireowls.apigame.craft.forge.ForgeRecipe;
 import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.Craftable;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
@@ -7,11 +8,12 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.attribut.Sellable;
 import fr.fireowls.apigame.item.material.Material;
 import fr.fireowls.apigame.item.material.MaterialType;
+import fr.fireowls.apigame.item.utils.HasMaterial;
 
 public class GoldIngot extends Material implements Craftable, Sellable {
 
-    public GoldIngot(int amount) {
-        super(Rarity.UNCOMMON, MaterialType.GOLDINGOT, amount,new ItemMeta("goldIngot.json"));
+    public GoldIngot() {
+        super(Rarity.UNCOMMON, MaterialType.GOLDINGOT,new ItemMeta("goldIngot.json"));
     }
 
     @Override
@@ -21,7 +23,7 @@ public class GoldIngot extends Material implements Craftable, Sellable {
 
     @Override
     public boolean hasMaterial(Inventory inv,int nb) {
-        return false;
+        return HasMaterial.hasMat(ForgeRecipe.getItemRecipe(this.getClass()),inv,nb);
     }
 
     @Override

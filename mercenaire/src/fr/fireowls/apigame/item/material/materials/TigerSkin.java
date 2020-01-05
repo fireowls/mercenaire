@@ -9,8 +9,8 @@ import fr.fireowls.apigame.item.material.MaterialType;
 
 public class TigerSkin extends Material implements Sellable {
 
-    public TigerSkin(int amount) {
-        super(Rarity.LEGENDARY, MaterialType.TIGERSKIN, amount,new ItemMeta("tigerSkin.json"));
+    public TigerSkin() {
+        super(Rarity.LEGENDARY, MaterialType.TIGERSKIN,new ItemMeta("tigerSkin.json"));
     }
 
     @Override

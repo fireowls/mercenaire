@@ -9,8 +9,8 @@ import fr.fireowls.apigame.item.material.MaterialType;
 
 public class Coal extends Material implements Sellable {
 
-    public Coal(int amount) {
-        super(Rarity.COMMON, MaterialType.COAL, amount,new ItemMeta("coal.json"));
+    public Coal() {
+        super(Rarity.COMMON, MaterialType.COAL,new ItemMeta("coal.json"));
     }
 
     @Override

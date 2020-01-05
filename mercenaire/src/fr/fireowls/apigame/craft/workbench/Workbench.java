@@ -1,24 +1,25 @@
-package fr.fireowls.apigame.craft.forge;
-
-import fr.fireowls.apigame.craft.CraftingTable;
-import fr.fireowls.apigame.craft.CraftingTableType;
-import fr.fireowls.apigame.inventory.Inventory;
-import fr.fireowls.apigame.item.Item;
+package fr.fireowls.apigame.craft.workbench;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Forge extends CraftingTable {
+import fr.fireowls.apigame.craft.CraftingTable;
+import fr.fireowls.apigame.craft.CraftingTableType;
+import fr.fireowls.apigame.craft.forge.ForgeRecipe;
+import fr.fireowls.apigame.inventory.Inventory;
+import fr.fireowls.apigame.item.Item;
 
-    public Forge() {
-        super(CraftingTableType.FORGE);
+public class Workbench extends CraftingTable {
+
+    public Workbench() {
+        super(CraftingTableType.WORKBENCH);
     }
 
     @Override
-    public List<Item> getAllAvailableCraft(Inventory inv){
+    public List<Item> getAllAvailableCraft(Inventory inv) {
         List<Item> items = new ArrayList<>();
-        for(ForgeRecipe item:ForgeRecipe.values()){
+        for(WorkbenchRecipe item:WorkbenchRecipe.values()){
             Item i = null;
             try {
                 i = item.getItem().getConstructor().newInstance();
@@ -38,7 +39,7 @@ public class Forge extends CraftingTable {
         return items;
     }
 
-    public void craft(ForgeRecipe recipe,Inventory inv,int nb){
+    public void craft(WorkbenchRecipe recipe,Inventory inv,int nb){
         Item itemToCraft = null;
 
         try {
@@ -67,5 +68,4 @@ public class Forge extends CraftingTable {
             }
         }
     }
-
 }

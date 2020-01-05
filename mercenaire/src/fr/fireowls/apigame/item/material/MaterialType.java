@@ -1,6 +1,7 @@
 package fr.fireowls.apigame.item.material;
 
 import fr.fireowls.apigame.item.material.materials.*;
+import fr.fireowls.apigame.item.material.materials.String;
 
 public enum MaterialType {
     STONE(999, Stone.class),
@@ -23,7 +24,8 @@ public enum MaterialType {
     GOLDINGOT(999,GoldIngot.class),
     COPPERORE(999,CopperOre.class),
     COPPERINGOT(999,CopperIngot.class),
-    SEELINGOT(999,SteelIngot.class);
+    SEELINGOT(999,SteelIngot.class),
+    STRING(999, String.class);
 
     private int maxStack;
     private Class<? extends Material> c;

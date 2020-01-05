@@ -9,8 +9,8 @@ import fr.fireowls.apigame.item.material.MaterialType;
 
 public class GoldOre extends Material implements Sellable {
 
-    public GoldOre(int amount) {
-        super(Rarity.COMMON, MaterialType.GOLDORE, amount,new ItemMeta("goldOre.json"));
+    public GoldOre() {
+        super(Rarity.COMMON, MaterialType.GOLDORE,new ItemMeta("goldOre.json"));
     }
 
     @Override

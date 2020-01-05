@@ -12,8 +12,8 @@ import fr.fireowls.apigame.item.utils.HasMaterial;
 
 public class IronIngot extends Material implements Craftable, Sellable {
 
-    public IronIngot(int amount) {
-        super(Rarity.UNCOMMON, MaterialType.IRONINGOT, amount,new ItemMeta("ironIngot.json"));
+    public IronIngot() {
+        super(Rarity.UNCOMMON, MaterialType.IRONINGOT,new ItemMeta("ironIngot.json"));
     }
 
     @Override

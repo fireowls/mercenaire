@@ -10,8 +10,8 @@ import fr.fireowls.apigame.item.material.MaterialType;
 
 public class Flour extends Material implements Craftable, Sellable {
 
-    public Flour(int amount) {
-        super(Rarity.COMMON, MaterialType.FLOUR, amount,new ItemMeta("flour.json"));
+    public Flour() {
+        super(Rarity.COMMON, MaterialType.FLOUR,new ItemMeta("flour.json"));
     }
 
     @Override

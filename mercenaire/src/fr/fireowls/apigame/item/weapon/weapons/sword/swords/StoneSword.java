@@ -1,10 +1,12 @@
 package fr.fireowls.apigame.item.weapon.weapons.sword.swords;
 
+import fr.fireowls.apigame.craft.workbench.WorkbenchRecipe;
 import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.Craftable;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.attribut.Sellable;
+import fr.fireowls.apigame.item.utils.HasMaterial;
 import fr.fireowls.apigame.item.weapon.weapons.sword.Sword;
 import fr.fireowls.apigame.item.weapon.weapons.sword.SwordType;
 
@@ -34,7 +36,7 @@ public class StoneSword extends Sword implements Craftable, Sellable {
      */
     @Override
     public boolean hasMaterial(Inventory inv,int nb) {
-        return false;
+        return HasMaterial.hasMat(WorkbenchRecipe.getItemRecipe(this.getClass()),inv,nb);
     }
 
     /**

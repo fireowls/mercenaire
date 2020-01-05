@@ -7,11 +7,16 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import fr.fireowls.apigame.craft.forge.Forge;
 import fr.fireowls.apigame.craft.forge.ForgeRecipe;
+import fr.fireowls.apigame.craft.workbench.Workbench;
+import fr.fireowls.apigame.craft.workbench.WorkbenchRecipe;
 import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.Item;
+import fr.fireowls.apigame.item.equipment.armor.belt.belts.IronBelt;
+import fr.fireowls.apigame.item.equipment.armor.shoulderpad.shoulderpads.IronShoulderPad;
 import fr.fireowls.apigame.item.material.MaterialType;
 import fr.fireowls.apigame.item.material.materials.IronIngot;
 import fr.fireowls.apigame.item.material.materials.IronOre;
+import fr.fireowls.apigame.item.material.materials.Leather;
 import fr.fireowls.apigame.item.material.materials.Stone;
 import fr.fireowls.apigame.item.material.materials.Wood;
 import fr.fireowls.apigame.item.utils.HasMaterial;
@@ -31,20 +36,18 @@ public class Mercenaire extends ApplicationAdapter {
 		sheet = new SpriteSheet(new File("textures/tiles/grass"));
 
 		Inventory inv = new Inventory();
-		Item ironOre = new IronOre(0);
-		Item ironIngot = new IronIngot(0);
+		Item stone = new Stone();
+		Item wood = new Wood();
 
-		inv.put(20,ironOre);
+		inv.put(1000,wood);
+		inv.put(500,stone);
 
-		Forge forge = new Forge();
+		new Workbench().craft(WorkbenchRecipe.STICK,inv,100);
+		new Workbench().craft(WorkbenchRecipe.STONEPICKAXE,inv,1);
 
-		forge.craft(ForgeRecipe.IRONINGOT,inv,5);
-
-		inv.put(40,ironIngot);
-
-		forge.craft(ForgeRecipe.STEELINGOT,inv,10);
 
 		inv.showInventory();
+
 
 	}
 

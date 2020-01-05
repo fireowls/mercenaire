@@ -9,8 +9,8 @@ import fr.fireowls.apigame.item.material.MaterialType;
 
 public class RawBeef extends Material implements Sellable {
 
-    public RawBeef(int amount) {
-        super(Rarity.COMMON, MaterialType.RAWBEEF, amount,new ItemMeta("rawBeef.json"));
+    public RawBeef() {
+        super(Rarity.COMMON, MaterialType.RAWBEEF,new ItemMeta("rawBeef.json"));
     }
 
     @Override

@@ -12,8 +12,8 @@ import fr.fireowls.apigame.item.utils.HasMaterial;
 
 public class SteelIngot extends Material implements Craftable, Sellable {
 
-    public SteelIngot(int amount) {
-        super(Rarity.RARE, MaterialType.SEELINGOT, amount,new ItemMeta("steelIngot.json"));
+    public SteelIngot() {
+        super(Rarity.RARE, MaterialType.SEELINGOT,new ItemMeta("steelIngot.json"));
     }
 
     @Override

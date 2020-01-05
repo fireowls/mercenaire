@@ -9,8 +9,8 @@ import fr.fireowls.apigame.item.material.MaterialType;
 
 public class Leather extends Material implements Sellable {
 
-    public Leather(int amount) {
-        super(Rarity.COMMON, MaterialType.LEATHER, amount,new ItemMeta("leather.json"));
+    public Leather() {
+        super(Rarity.COMMON, MaterialType.LEATHER,new ItemMeta("leather.json"));
     }
 
     @Override

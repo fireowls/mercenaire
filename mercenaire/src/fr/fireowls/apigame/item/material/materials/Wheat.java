@@ -9,8 +9,8 @@ import fr.fireowls.apigame.item.material.MaterialType;
 
 public class Wheat extends Material implements Sellable {
 
-    public Wheat(int amount) {
-        super(Rarity.COMMON, MaterialType.WHEAT, amount,new ItemMeta("wheat.json"));
+    public Wheat() {
+        super(Rarity.COMMON, MaterialType.WHEAT,new ItemMeta("wheat.json"));
     }
 
     @Override

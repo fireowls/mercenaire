@@ -11,10 +11,12 @@ public class ItemMeta {
     protected String name, desc;
     private JsonReader reader;
     private JsonValue val;
+    private LanguageMeta lang;
 
     public ItemMeta(String fileName){
+        lang = LanguageMeta.ENGLISH;
         reader = new JsonReader();
-        FileHandle f = Gdx.files.internal("item/en-Eng/"+fileName);
+        FileHandle f = Gdx.files.internal(lang.getPath()+fileName);
         val = reader.parse(f);
         name = val.getString("name");
         desc = val.getString("desc");

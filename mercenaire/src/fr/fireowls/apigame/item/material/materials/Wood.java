@@ -9,8 +9,8 @@ import fr.fireowls.apigame.item.material.MaterialType;
 
 public class Wood extends Material implements Sellable {
 
-    public Wood(int amount) {
-        super(Rarity.COMMON, MaterialType.WOOD, amount,new ItemMeta("wood.json"));
+    public Wood() {
+        super(Rarity.COMMON, MaterialType.WOOD,new ItemMeta("wood.json"));
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Wood extends Material implements Sellable {
 
     @Override
     public double getPrice() {
-        return 1 * super.amount;
+        return 1;
     }
 
     @Override

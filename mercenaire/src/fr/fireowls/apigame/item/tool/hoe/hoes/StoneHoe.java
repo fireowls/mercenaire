@@ -1,5 +1,8 @@
 package fr.fireowls.apigame.item.tool.hoe.hoes;
 
+import javax.print.attribute.HashAttributeSet;
+
+import fr.fireowls.apigame.craft.workbench.WorkbenchRecipe;
 import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.Craftable;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
@@ -7,6 +10,7 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 import fr.fireowls.apigame.item.attribut.Sellable;
 import fr.fireowls.apigame.item.tool.hoe.Hoe;
 import fr.fireowls.apigame.item.tool.hoe.HoeType;
+import fr.fireowls.apigame.item.utils.HasMaterial;
 
 public class StoneHoe extends Hoe implements Craftable, Sellable {
     /**
@@ -23,7 +27,7 @@ public class StoneHoe extends Hoe implements Craftable, Sellable {
 
     @Override
     public boolean hasMaterial(Inventory inv,int nb) {
-        return false;
+        return HasMaterial.hasMat(WorkbenchRecipe.getItemRecipe(this.getClass()),inv,nb);
     }
 
     @Override

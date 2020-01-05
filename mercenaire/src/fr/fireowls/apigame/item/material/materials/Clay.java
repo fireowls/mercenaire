@@ -10,8 +10,8 @@ import fr.fireowls.apigame.item.material.MaterialType;
 public class Clay extends Material implements Sellable {
 
 
-    public Clay(int amount) {
-        super(Rarity.COMMON, MaterialType.CLAY, amount,new ItemMeta("clay.json"));
+    public Clay() {
+        super(Rarity.COMMON, MaterialType.CLAY,new ItemMeta("clay.json"));
     }
 
     @Override

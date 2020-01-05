@@ -10,8 +10,8 @@ import fr.fireowls.apigame.item.material.MaterialType;
 
 public class Brick extends Material implements Craftable, Sellable {
 
-    public Brick(int amount) {
-        super(Rarity.COMMON, MaterialType.BRICK, amount,new ItemMeta("brick.json"));
+    public Brick() {
+        super(Rarity.COMMON, MaterialType.BRICK,new ItemMeta("brick.json"));
     }
 
     @Override

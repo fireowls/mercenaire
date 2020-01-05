@@ -9,8 +9,8 @@ import fr.fireowls.apigame.item.material.MaterialType;
 
 public class TigerTooth extends Material implements Sellable {
 
-    public TigerTooth(int amount) {
-        super(Rarity.LEGENDARY, MaterialType.TIGERTOOTH, amount,new ItemMeta("tigerTooth.json"));
+    public TigerTooth() {
+        super(Rarity.LEGENDARY, MaterialType.TIGERTOOTH,new ItemMeta("tigerTooth.json"));
     }
 
     @Override

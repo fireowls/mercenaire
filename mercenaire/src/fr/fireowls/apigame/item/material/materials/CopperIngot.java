@@ -12,8 +12,8 @@ import fr.fireowls.apigame.item.utils.HasMaterial;
 
 public class CopperIngot extends Material implements Craftable, Sellable {
 
-    public CopperIngot(int amount) {
-        super(Rarity.UNCOMMON, MaterialType.COPPERINGOT, amount,new ItemMeta("copperIngot.json"));
+    public CopperIngot() {
+        super(Rarity.UNCOMMON, MaterialType.COPPERINGOT,new ItemMeta("copperIngot.json"));
     }
 
     @Override

@@ -7,22 +7,13 @@ import fr.fireowls.apigame.item.attribut.Rarity;
 
 public abstract class Material extends Item {
 
-    protected int amount;
     protected final int MAX_STACK;
     protected MaterialType type;
 
-    public Material(Rarity rarity,MaterialType type,int amount, ItemMeta meta) {
+    public Material(Rarity rarity,MaterialType type, ItemMeta meta) {
         super(ItemType.MATERIAL, rarity,meta);
-        this.amount = amount;
         this.type = type;
         this.MAX_STACK = type.getMaxStack();
     }
 
-    public int getAmount(){
-        return amount;
-    }
-
-    public int placeLeft(){
-        return MAX_STACK - amount;
-    }
 }
