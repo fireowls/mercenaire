@@ -32,8 +32,8 @@ public class LeatherShoulderPad extends ShoulderPad implements Craftable, Sellab
     }
 
     @Override
-    public double getPrice() {
-        return 20;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

@@ -32,8 +32,8 @@ public class StoneArrow extends Arrow implements Craftable, Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 5;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

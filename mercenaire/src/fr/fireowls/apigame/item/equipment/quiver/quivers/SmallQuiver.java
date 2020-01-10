@@ -29,4 +29,10 @@ public class SmallQuiver extends Quiver implements Craftable {
     public int getMaxStackValue() {
         return 1;
     }
+
+    @Override
+    public int getPrice() {
+        return 0;
+    }
+
 }

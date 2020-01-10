@@ -19,8 +19,8 @@ public class TigerClaw extends Material implements Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 10000;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

@@ -32,8 +32,8 @@ public class TigerPaw extends Weapon implements Sellable {
      * @return la valeur de la Patte de tigre à dent de sapin
      */
     @Override
-    public double getPrice() {
-        return 1000000;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

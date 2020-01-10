@@ -34,7 +34,7 @@ public class IronHelmet extends Helmet implements Craftable, Sellable {
     }
 
     @Override
-    public double getPrice() {
+    public int getPrice() {
         return 0;
     }
 

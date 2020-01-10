@@ -36,8 +36,8 @@ public class StoneHoe extends Hoe implements Craftable, Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 15;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

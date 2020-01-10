@@ -32,8 +32,8 @@ public class IronNecklace extends Necklace implements Craftable, Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 50;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

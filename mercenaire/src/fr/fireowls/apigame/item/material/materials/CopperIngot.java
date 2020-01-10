@@ -32,7 +32,7 @@ public class CopperIngot extends Material implements Craftable, Sellable {
     }
 
     @Override
-    public double getPrice() {
+    public int getPrice() {
         return 0;
     }
 

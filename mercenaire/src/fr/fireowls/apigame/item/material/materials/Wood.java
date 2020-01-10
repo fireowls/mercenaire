@@ -19,8 +19,8 @@ public class Wood extends Material implements Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 1;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

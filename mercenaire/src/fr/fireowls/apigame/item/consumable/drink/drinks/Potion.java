@@ -26,10 +26,7 @@ public class Potion extends Drink implements Craftable,Sellable {
 
     }
 
-    @Override
-    public double getPrice() {
-        return 20 * super.amount;
-    }
+
 
     @Override
     public void craft() {
@@ -44,5 +41,10 @@ public class Potion extends Drink implements Craftable,Sellable {
     @Override
     public int getMaxStackValue() {
         return type.getMaxStack();
+    }
+
+    @Override
+    public int getPrice() {
+        return 0;
     }
 }

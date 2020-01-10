@@ -51,8 +51,8 @@ public class StoneSword extends Sword implements Craftable, Sellable {
      * @return la valeur de l'épée en pierre
      */
     @Override
-    public double getPrice() {
-        return 5;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

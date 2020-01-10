@@ -85,4 +85,8 @@ public class Inventory {
         return items;
     }
 
+    public Map<Item,Integer> getInventory(){
+        return inventory;
+    }
+
 }

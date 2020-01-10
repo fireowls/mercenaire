@@ -32,8 +32,8 @@ public class LeatherGlove extends Glove implements Craftable, Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 20;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

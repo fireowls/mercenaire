@@ -4,6 +4,7 @@ import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.attribut.ItemMeta;
 import fr.fireowls.apigame.item.attribut.ItemType;
 import fr.fireowls.apigame.item.attribut.Rarity;
+import fr.fireowls.apigame.money.Purse;
 
 /**
  * @author MrKeesLer
@@ -45,5 +46,6 @@ public abstract class Item {
 
     public abstract boolean hasMaterial(Inventory inv,int nb);
     public abstract int getMaxStackValue();
+    public abstract int getPrice();
 
 }

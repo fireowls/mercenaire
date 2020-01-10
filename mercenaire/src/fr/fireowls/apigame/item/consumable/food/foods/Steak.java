@@ -27,7 +27,7 @@ public class Steak extends Food implements Craftable,Sellable {
     }
 
     @Override
-    public double getPrice() {
+    public int getPrice() {
         return 5 * super.amount;
     }
 

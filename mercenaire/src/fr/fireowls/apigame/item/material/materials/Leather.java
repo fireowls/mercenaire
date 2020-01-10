@@ -19,8 +19,8 @@ public class Leather extends Material implements Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 4;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

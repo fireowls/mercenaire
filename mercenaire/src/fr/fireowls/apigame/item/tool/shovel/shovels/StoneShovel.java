@@ -34,8 +34,8 @@ public class StoneShovel extends Shovel implements Craftable, Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 15;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

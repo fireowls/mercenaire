@@ -32,8 +32,8 @@ public class StoneBolt extends Bolt implements Craftable, Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 10;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

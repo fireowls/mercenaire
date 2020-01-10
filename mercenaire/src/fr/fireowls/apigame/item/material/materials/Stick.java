@@ -32,8 +32,8 @@ public class Stick extends Material implements Craftable, Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 2;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

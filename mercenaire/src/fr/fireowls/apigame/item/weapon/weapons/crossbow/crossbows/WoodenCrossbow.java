@@ -33,7 +33,7 @@ public class WoodenCrossbow extends Crossbow implements Craftable, Sellable {
     }
 
     @Override
-    public double getPrice() {
+    public int getPrice() {
         return 0;
     }
 

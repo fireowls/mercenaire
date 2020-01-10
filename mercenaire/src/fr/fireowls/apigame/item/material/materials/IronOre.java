@@ -19,8 +19,8 @@ public class IronOre extends Material implements Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 2;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

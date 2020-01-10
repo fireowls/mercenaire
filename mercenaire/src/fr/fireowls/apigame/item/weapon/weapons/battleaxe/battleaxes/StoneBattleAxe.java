@@ -32,8 +32,8 @@ public class StoneBattleAxe extends BattleAxe implements Craftable, Sellable {
     }
 
     @Override
-    public double getPrice() {
-        return 25;
+    public int getPrice() {
+        return 0;
     }
 
     @Override

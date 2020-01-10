@@ -29,7 +29,7 @@ public class String extends Material implements Sellable {
     }
 
     @Override
-    public double getPrice() {
+    public int getPrice() {
         return 0;
     }
 }
