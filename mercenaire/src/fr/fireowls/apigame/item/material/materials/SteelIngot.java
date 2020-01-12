@@ -33,7 +33,7 @@ public class SteelIngot extends Material implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 50;
     }
 
     @Override

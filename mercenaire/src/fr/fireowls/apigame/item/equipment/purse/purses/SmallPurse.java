@@ -15,7 +15,7 @@ public class SmallPurse extends PurseItem implements Craftable, Sellable {
      * Constructeur d'item
      */
     public SmallPurse() {
-        super(PurseItemType.SMALL,Rarity.COMMON, new ItemMeta("smallPurse.json"));
+        super(PurseItemType.SMALL,Rarity.COMMON, new ItemMeta("smallPurse.json"),100);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class SmallPurse extends PurseItem implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 15;
     }
 
     @Override

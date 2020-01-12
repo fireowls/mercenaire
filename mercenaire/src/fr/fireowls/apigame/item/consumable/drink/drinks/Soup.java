@@ -11,13 +11,10 @@ import fr.fireowls.apigame.item.consumable.drink.DrinkType;
 public class Soup extends Drink implements Craftable, Sellable {
     /**
      * Constructeur d'un consommable
-     *
-     * @param rarity est la rareté de l'item
-     * @param type
      * @param amount
      */
-    public Soup(int amount) {
-        super(Rarity.COMMON, DrinkType.SOUP, amount,new ItemMeta("soup.json"));
+    public Soup() {
+        super(Rarity.COMMON, DrinkType.SOUP,new ItemMeta("soup.json"));
     }
 
     @Override
@@ -37,7 +34,7 @@ public class Soup extends Drink implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 5;
     }
 
     @Override

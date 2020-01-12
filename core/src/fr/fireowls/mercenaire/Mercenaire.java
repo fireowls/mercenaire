@@ -13,6 +13,7 @@ import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.Item;
 import fr.fireowls.apigame.item.equipment.armor.belt.belts.IronBelt;
 import fr.fireowls.apigame.item.equipment.armor.shoulderpad.shoulderpads.IronShoulderPad;
+import fr.fireowls.apigame.item.equipment.purse.purses.SpruceToothPurse;
 import fr.fireowls.apigame.item.material.MaterialType;
 import fr.fireowls.apigame.item.material.materials.IronIngot;
 import fr.fireowls.apigame.item.material.materials.IronOre;
@@ -20,6 +21,7 @@ import fr.fireowls.apigame.item.material.materials.Leather;
 import fr.fireowls.apigame.item.material.materials.Stone;
 import fr.fireowls.apigame.item.material.materials.Wood;
 import fr.fireowls.apigame.item.utils.HasMaterial;
+import fr.fireowls.apigame.money.Purse;
 import fr.fireowls.apigame.utils.textures.SpriteSheet;
 
 import java.io.File;
@@ -40,14 +42,15 @@ public class Mercenaire extends ApplicationAdapter {
 		Item wood = new Wood();
 
 		inv.put(1000,wood);
-		inv.put(500,stone);
-
-		new Workbench().craft(WorkbenchRecipe.STICK,inv,100);
-		new Workbench().craft(WorkbenchRecipe.STONEPICKAXE,inv,1);
-
 
 		inv.showInventory();
 
+		Purse pusre = new Purse(new SpruceToothPurse());
+		pusre.showMoney();
+		pusre.sellAllItem(inv);
+
+		inv.showInventory();
+		pusre.showMoney();
 
 	}
 

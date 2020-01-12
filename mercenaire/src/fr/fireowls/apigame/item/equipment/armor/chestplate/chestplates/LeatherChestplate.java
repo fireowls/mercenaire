@@ -33,7 +33,7 @@ public class LeatherChestplate extends Chestplate implements Craftable, Sellable
 
     @Override
     public int getPrice() {
-        return 0;
+        return 15;
     }
 
     @Override

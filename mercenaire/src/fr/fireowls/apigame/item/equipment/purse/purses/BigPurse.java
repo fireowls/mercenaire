@@ -15,7 +15,7 @@ public class BigPurse extends PurseItem implements Craftable, Sellable {
      * Constructeur d'item
      */
     public BigPurse(ItemMeta meta) {
-        super(PurseItemType.BIG, Rarity.RARE, new ItemMeta("bigPurse.json"));
+        super(PurseItemType.BIG, Rarity.RARE, new ItemMeta("bigPurse.json"),10000);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class BigPurse extends PurseItem implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 25;
     }
 
     @Override

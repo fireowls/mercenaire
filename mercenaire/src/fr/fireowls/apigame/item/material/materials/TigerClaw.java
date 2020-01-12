@@ -20,7 +20,7 @@ public class TigerClaw extends Material implements Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 10000;
     }
 
     @Override

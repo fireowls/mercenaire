@@ -16,7 +16,7 @@ public class MediumPurse extends PurseItem implements Craftable, Sellable {
      * Constructeur d'item
      */
     public MediumPurse() {
-        super(PurseItemType.MEDIUM,Rarity.UNCOMMON, new ItemMeta("mediumPurse.json"));
+        super(PurseItemType.MEDIUM,Rarity.UNCOMMON, new ItemMeta("mediumPurse.json"),1000);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class MediumPurse extends PurseItem implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 20;
     }
 
     @Override

@@ -2,7 +2,7 @@ package fr.fireowls.apigame.craft.workbench;
 
 import fr.fireowls.apigame.item.Item;
 
-import fr.fireowls.apigame.item.equipment.purse.SpruceToothPurse;
+import fr.fireowls.apigame.item.equipment.purse.purses.SpruceToothPurse;
 import fr.fireowls.apigame.item.equipment.purse.purses.BigPurse;
 import fr.fireowls.apigame.item.equipment.purse.purses.GreaterPurse;
 import fr.fireowls.apigame.item.equipment.purse.purses.MediumPurse;

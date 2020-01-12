@@ -21,7 +21,7 @@ public class Clay extends Material implements Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 1;
     }
 
     @Override

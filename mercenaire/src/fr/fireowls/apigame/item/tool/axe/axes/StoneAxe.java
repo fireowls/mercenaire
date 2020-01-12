@@ -35,7 +35,7 @@ public class StoneAxe extends Axe implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 10;
     }
 
     @Override

@@ -33,7 +33,7 @@ public class StoneHammer extends Hammer implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 15;
     }
 
     @Override

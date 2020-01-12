@@ -11,10 +11,9 @@ import fr.fireowls.apigame.item.consumable.food.FoodType;
 public class CookedFish extends Food implements Craftable, Sellable {
     /**
      * Constructeur d'un consommable
-     * @param amount
      */
-    public CookedFish(int amount) {
-        super(Rarity.COMMON, FoodType.COOKEDFISH, amount,new ItemMeta("cookedFish.json"));
+    public CookedFish() {
+        super(Rarity.COMMON, FoodType.COOKEDFISH,new ItemMeta("cookedFish.json"));
     }
 
     @Override
@@ -39,7 +38,7 @@ public class CookedFish extends Food implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 5;
     }
 
     @Override

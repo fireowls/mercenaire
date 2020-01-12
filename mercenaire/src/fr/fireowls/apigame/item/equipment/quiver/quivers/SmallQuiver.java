@@ -32,7 +32,7 @@ public class SmallQuiver extends Quiver implements Craftable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 20;
     }
 
 }

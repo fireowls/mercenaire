@@ -35,7 +35,7 @@ public class StonePick extends Pickaxe implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 15;
     }
 
     @Override

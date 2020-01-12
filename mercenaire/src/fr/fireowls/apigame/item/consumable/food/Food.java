@@ -10,7 +10,6 @@ import java.lang.reflect.InvocationTargetException;
 public abstract class Food extends Consume {
 
     protected FoodType type;
-    protected int amount;
     protected final int MAXSTACK;
 
     /**
@@ -18,19 +17,10 @@ public abstract class Food extends Consume {
      *
      * @param rarity est la rareté de l'item
      */
-    public Food(Rarity rarity,FoodType type,int amount, ItemMeta meta) {
+    public Food(Rarity rarity,FoodType type, ItemMeta meta) {
         super(rarity, ConsumeType.FOOD,meta);
         this.type = type;
-        this.amount = amount;
         this.MAXSTACK = type.getMaxStack();
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public int placeLeft(){
-        return MAXSTACK - amount;
     }
 
     @Override

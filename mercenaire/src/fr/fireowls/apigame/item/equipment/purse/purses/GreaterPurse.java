@@ -15,7 +15,7 @@ public class GreaterPurse extends PurseItem implements Craftable, Sellable {
      * Constructeur d'item
      */
     public GreaterPurse() {
-        super(PurseItemType.GREATER, Rarity.EPIC, new ItemMeta("greaterPurse.json"));
+        super(PurseItemType.GREATER, Rarity.EPIC, new ItemMeta("greaterPurse.json"),100000);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class GreaterPurse extends PurseItem implements Craftable, Sellable {
 
     @Override
     public int getMaxStackValue() {
-        return 1;
+        return 30;
     }
 
     @Override

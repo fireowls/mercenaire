@@ -12,8 +12,8 @@ public class Potion extends Drink implements Craftable,Sellable {
     /**
      * Constructeur d'un consommable
      */
-    public Potion(int amount) {
-        super(Rarity.COMMON,DrinkType.POTION,amount,new ItemMeta("potion.json"));
+    public Potion() {
+        super(Rarity.COMMON,DrinkType.POTION,new ItemMeta("potion.json"));
     }
 
     @Override
@@ -45,6 +45,6 @@ public class Potion extends Drink implements Craftable,Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 15;
     }
 }

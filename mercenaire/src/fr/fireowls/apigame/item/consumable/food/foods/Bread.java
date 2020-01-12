@@ -11,10 +11,9 @@ import fr.fireowls.apigame.item.consumable.food.FoodType;
 public class Bread extends Food implements Craftable, Sellable {
     /**
      * Constructeur d'un consommable
-     * @param amount
      */
-    public Bread(int amount) {
-        super(Rarity.COMMON, FoodType.BREAD, amount,new ItemMeta("bread.json"));
+    public Bread() {
+        super(Rarity.COMMON, FoodType.BREAD,new ItemMeta("bread.json"));
     }
 
     @Override
@@ -39,7 +38,7 @@ public class Bread extends Food implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 10;
     }
 
     @Override

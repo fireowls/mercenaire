@@ -10,7 +10,6 @@ import java.lang.reflect.InvocationTargetException;
 public abstract class Drink extends Consume {
 
     protected DrinkType type;
-    protected int amount;
     protected final int MAXSTACK;
 
     /**
@@ -18,19 +17,10 @@ public abstract class Drink extends Consume {
      *
      * @param rarity est la rareté de l'item
      */
-    public Drink(Rarity rarity, DrinkType type, int amount, ItemMeta meta) {
+    public Drink(Rarity rarity, DrinkType type, ItemMeta meta) {
         super(rarity, ConsumeType.DRINK,meta);
         this.type = type;
-        this.amount = amount;
         this.MAXSTACK = type.getMaxStack();
-    }
-
-    public int getAmount(){
-        return amount;
-    }
-
-    public int placeLeft(){
-        return MAXSTACK - amount;
     }
 
     @Override

@@ -35,7 +35,7 @@ public class IronShoulderPad extends ShoulderPad implements Craftable, Sellable 
 
     @Override
     public int getPrice() {
-        return 0;
+        return 25;
     }
 
     @Override

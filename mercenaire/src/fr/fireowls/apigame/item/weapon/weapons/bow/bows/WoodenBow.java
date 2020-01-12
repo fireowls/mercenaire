@@ -34,7 +34,7 @@ public class WoodenBow extends Bow implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 20;
     }
 
     @Override

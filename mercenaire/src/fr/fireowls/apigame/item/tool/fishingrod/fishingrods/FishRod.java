@@ -36,7 +36,7 @@ public class FishRod extends FishingRod implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 10;
     }
 
     @Override

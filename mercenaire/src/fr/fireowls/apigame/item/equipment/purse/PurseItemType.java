@@ -4,6 +4,7 @@ import fr.fireowls.apigame.item.equipment.purse.purses.BigPurse;
 import fr.fireowls.apigame.item.equipment.purse.purses.GreaterPurse;
 import fr.fireowls.apigame.item.equipment.purse.purses.MediumPurse;
 import fr.fireowls.apigame.item.equipment.purse.purses.SmallPurse;
+import fr.fireowls.apigame.item.equipment.purse.purses.SpruceToothPurse;
 
 public enum PurseItemType {
     SMALL(SmallPurse.class),

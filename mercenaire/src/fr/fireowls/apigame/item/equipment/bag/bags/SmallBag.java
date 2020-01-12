@@ -32,6 +32,6 @@ public class SmallBag extends Bag implements Craftable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 10;
     }
 }

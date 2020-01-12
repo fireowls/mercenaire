@@ -52,7 +52,7 @@ public class StoneSword extends Sword implements Craftable, Sellable {
      */
     @Override
     public int getPrice() {
-        return 0;
+        return 20;
     }
 
     @Override

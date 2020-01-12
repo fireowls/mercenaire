@@ -33,7 +33,7 @@ public class TigerPaw extends Weapon implements Sellable {
      */
     @Override
     public int getPrice() {
-        return 0;
+        return 100000;
     }
 
     @Override

@@ -20,7 +20,7 @@ public class Coal extends Material implements Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 2;
     }
 
     @Override

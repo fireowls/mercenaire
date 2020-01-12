@@ -12,8 +12,8 @@ public class Steak extends Food implements Craftable,Sellable {
     /**
      * Constructeur d'un consommable
      */
-    public Steak(int amount) {
-        super(Rarity.COMMON, FoodType.STEAK,amount,new ItemMeta("steak.json"));
+    public Steak() {
+        super(Rarity.COMMON, FoodType.STEAK,new ItemMeta("steak.json"));
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Steak extends Food implements Craftable,Sellable {
 
     @Override
     public int getPrice() {
-        return 5 * super.amount;
+        return 15;
     }
 
     @Override

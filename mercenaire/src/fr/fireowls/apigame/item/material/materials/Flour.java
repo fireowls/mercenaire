@@ -31,7 +31,7 @@ public class Flour extends Material implements Craftable, Sellable {
 
     @Override
     public int getPrice() {
-        return 0;
+        return 2;
     }
 
     @Override
