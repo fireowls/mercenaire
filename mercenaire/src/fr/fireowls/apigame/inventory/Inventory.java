@@ -89,4 +89,28 @@ public class Inventory {
         return inventory;
     }
 
+    public long getItemsValue(){
+        long value = 0;
+        for(Item i:inventory.keySet()){
+            value += inventory.get(i) * i.getPrice();
+        }
+        return value;
+    }
+
+    public void clearInventory(){
+        inventory.clear();
+    }
+
+    public void removeAllSellable(){
+        List<Item> itemToRemove = new ArrayList<>();
+        for(Item i:inventory.keySet()){
+            if(i.getPrice() != 0){
+                itemToRemove.add(i);
+            }
+        }
+        for(Item i:itemToRemove){
+            inventory.remove(i);
+        }
+    }
+
 }

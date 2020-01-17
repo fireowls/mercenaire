@@ -27,21 +27,28 @@ public class Purse {
         if(this.amount < 0) this.amount = 0;
     }
 
-    public void sellAllItem(Inventory inv){
-        for(Item item:inv.getInventory().keySet()){
-            this.amount += item.getPrice() * inv.getInventory().get(item);
-            inv.remove(inv.getInventory().get(item),item);
-        }
+    public boolean sellAllItem(Inventory inv){
+       if((inv.getItemsValue() + amount) > purse.getMaxMoneyAmount()){
+           return false;
+       }else {
+           this.amount += inv.getItemsValue();
+           inv.removeAllSellable();
+           return true;
+       }
     }
 
     public boolean sellItem(Item item,int qte,Inventory inv){
-        if((amount+(item.getPrice()*qte)) > purse.getMaxMoneyAmount()){
+        if(item.getPrice() == 0 || (amount+(item.getPrice()*qte)) > purse.getMaxMoneyAmount()){
             return false;
         }else {
             this.amount += item.getPrice() * qte;
             inv.remove(qte,item);
             return true;
         }
+    }
+
+    public void setNewPurseItem(PurseItem item){
+        this.purse = item;
     }
 
     public void showMoney(){

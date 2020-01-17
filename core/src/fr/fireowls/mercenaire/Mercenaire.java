@@ -13,6 +13,7 @@ import fr.fireowls.apigame.inventory.Inventory;
 import fr.fireowls.apigame.item.Item;
 import fr.fireowls.apigame.item.equipment.armor.belt.belts.IronBelt;
 import fr.fireowls.apigame.item.equipment.armor.shoulderpad.shoulderpads.IronShoulderPad;
+import fr.fireowls.apigame.item.equipment.purse.purses.PocketPurse;
 import fr.fireowls.apigame.item.equipment.purse.purses.SpruceToothPurse;
 import fr.fireowls.apigame.item.material.MaterialType;
 import fr.fireowls.apigame.item.material.materials.IronIngot;
@@ -40,8 +41,10 @@ public class Mercenaire extends ApplicationAdapter {
 		Inventory inv = new Inventory();
 		Item stone = new Stone();
 		Item wood = new Wood();
+		Item pocket = new PocketPurse();
 
 		inv.put(1000,wood);
+		inv.put(1,pocket);
 
 		inv.showInventory();
 
