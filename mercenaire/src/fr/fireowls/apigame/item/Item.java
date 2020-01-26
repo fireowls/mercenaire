@@ -67,8 +67,8 @@ public abstract class Item {
     /**
      *
      * @return the price of the item, if the item is not buyable return 0
-
-    public abstract int getMarchandPrice();
     */
+    public abstract int getMarchandPrice();
+
 
 }

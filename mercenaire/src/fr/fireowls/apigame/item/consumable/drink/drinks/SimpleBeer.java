@@ -47,4 +47,9 @@ public class SimpleBeer extends Drink implements Craftable, Sellable {
     public int getPrice() {
         return 5;
     }
+
+    @Override
+    public int getMarchandPrice() {
+        return 0;
+    }
 }

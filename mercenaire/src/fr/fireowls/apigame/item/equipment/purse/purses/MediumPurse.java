@@ -43,4 +43,9 @@ public class MediumPurse extends PurseItem implements Craftable, Sellable {
     public void sell() {
 
     }
+
+    @Override
+    public int getMarchandPrice() {
+        return 0;
+    }
 }

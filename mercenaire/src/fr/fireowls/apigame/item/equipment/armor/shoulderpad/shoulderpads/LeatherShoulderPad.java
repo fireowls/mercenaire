@@ -40,4 +40,9 @@ public class LeatherShoulderPad extends ShoulderPad implements Craftable, Sellab
     public int getMaxStackValue() {
         return 1;
     }
+
+    @Override
+    public int getMarchandPrice() {
+        return 0;
+    }
 }

@@ -35,4 +35,8 @@ public class SmallQuiver extends Quiver implements Craftable {
         return 20;
     }
 
+    @Override
+    public int getMarchandPrice() {
+        return 0;
+    }
 }

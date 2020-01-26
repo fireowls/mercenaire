@@ -33,4 +33,8 @@ public class RawBeef extends Material implements Sellable {
         return type.getMaxStack();
     }
 
+    @Override
+    public int getMarchandPrice() {
+        return 0;
+    }
 }

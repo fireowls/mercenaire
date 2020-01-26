@@ -54,4 +54,8 @@ public class Purse {
     public boolean sellItem(Item item, int qte, Inventory inv){
         return sell.sellItem(item,qte,inv,this);
     }
+
+    public boolean buyItem(Item item,int qte, Inventory inv){
+        return buy.buyItem(item,qte,inv,this);
+    }
 }

@@ -55,6 +55,11 @@ public class Mercenaire extends ApplicationAdapter {
 		inv.showInventory();
 		pusre.showMoney();
 
+		pusre.buyItem(stone,500,inv);
+
+		inv.showInventory();
+		pusre.showMoney();
+
 	}
 
 	@Override

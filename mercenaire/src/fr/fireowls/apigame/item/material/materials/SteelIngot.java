@@ -40,4 +40,9 @@ public class SteelIngot extends Material implements Craftable, Sellable {
     public int getMaxStackValue() {
         return type.getMaxStack();
     }
+
+    @Override
+    public int getMarchandPrice() {
+        return 0;
+    }
 }

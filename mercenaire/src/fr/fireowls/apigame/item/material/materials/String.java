@@ -32,4 +32,9 @@ public class String extends Material implements Sellable {
     public int getPrice() {
         return 2;
     }
+
+    @Override
+    public int getMarchandPrice() {
+        return 0;
+    }
 }

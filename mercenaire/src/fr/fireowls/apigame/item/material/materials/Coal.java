@@ -32,4 +32,9 @@ public class Coal extends Material implements Sellable {
     public int getMaxStackValue() {
         return type.getMaxStack();
     }
+
+    @Override
+    public int getMarchandPrice() {
+        return 0;
+    }
 }

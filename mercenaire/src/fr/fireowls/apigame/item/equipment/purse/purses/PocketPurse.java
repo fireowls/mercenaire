@@ -28,4 +28,9 @@ public class PocketPurse extends PurseItem {
     public int getPrice() {
         return 0;
     }
+
+    @Override
+    public int getMarchandPrice() {
+        return 0;
+    }
 }

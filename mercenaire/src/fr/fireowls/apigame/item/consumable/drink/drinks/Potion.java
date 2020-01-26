@@ -47,4 +47,9 @@ public class Potion extends Drink implements Craftable,Sellable {
     public int getPrice() {
         return 15;
     }
+
+    @Override
+    public int getMarchandPrice() {
+        return 0;
+    }
 }
