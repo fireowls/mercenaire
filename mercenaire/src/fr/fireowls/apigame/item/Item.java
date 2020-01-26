@@ -44,8 +44,31 @@ public abstract class Item {
         return res;
     }
 
+    /**
+     * Verify if you can craft a certain item with the material in your inventory.
+     * @param inv the inventory of the player
+     * @param nb the number of item that you want to craft
+     * @return return true if you can craft nb items, else return false.
+     */
     public abstract boolean hasMaterial(Inventory inv,int nb);
+
+    /**
+     *
+     * @return the max value of item of one stack
+     */
     public abstract int getMaxStackValue();
+
+    /**
+     *
+     * @return the price of the item, if the item is not sellable return 0
+     */
     public abstract int getPrice();
+
+    /**
+     *
+     * @return the price of the item, if the item is not buyable return 0
+
+    public abstract int getMarchandPrice();
+    */
 
 }

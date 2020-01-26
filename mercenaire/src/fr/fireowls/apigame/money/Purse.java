@@ -8,10 +8,14 @@ public class Purse {
 
     private long amount;
     private PurseItem purse;
+    private Sell sell;
+    private Buy buy;
 
     public Purse(long a,PurseItem purse){
         this.amount = a;
         this.purse = purse;
+        this.sell = new Sell();
+        this.buy = new Buy();
     }
 
     public Purse(PurseItem purse){
@@ -27,24 +31,12 @@ public class Purse {
         if(this.amount < 0) this.amount = 0;
     }
 
-    public boolean sellAllItem(Inventory inv){
-       if((inv.getItemsValue() + amount) > purse.getMaxMoneyAmount()){
-           return false;
-       }else {
-           this.amount += inv.getItemsValue();
-           inv.removeAllSellable();
-           return true;
-       }
+    public long getAmount(){
+        return amount;
     }
 
-    public boolean sellItem(Item item,int qte,Inventory inv){
-        if(item.getPrice() == 0 || (amount+(item.getPrice()*qte)) > purse.getMaxMoneyAmount()){
-            return false;
-        }else {
-            this.amount += item.getPrice() * qte;
-            inv.remove(qte,item);
-            return true;
-        }
+    public PurseItem getPurseItem(){
+        return purse;
     }
 
     public void setNewPurseItem(PurseItem item){
@@ -53,5 +45,13 @@ public class Purse {
 
     public void showMoney(){
          System.out.println(amount+"/"+purse.getMaxMoneyAmount());
+    }
+
+    public boolean sellAllItem(Inventory inv){
+        return sell.sellAllItem(inv,this);
+    }
+
+    public boolean sellItem(Item item, int qte, Inventory inv){
+        return sell.sellItem(item,qte,inv,this);
     }
 }
