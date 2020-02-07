@@ -6,6 +6,28 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import fr.fireowls.apigame.craft.forge.Forge;
+import fr.fireowls.apigame.craft.forge.ForgeRecipe;
+import fr.fireowls.apigame.craft.workbench.Workbench;
+import fr.fireowls.apigame.craft.workbench.WorkbenchRecipe;
+import fr.fireowls.apigame.inventory.Inventory;
+import fr.fireowls.apigame.item.Item;
+import fr.fireowls.apigame.item.equipment.armor.belt.belts.IronBelt;
+import fr.fireowls.apigame.item.equipment.armor.shoulderpad.shoulderpads.IronShoulderPad;
+import fr.fireowls.apigame.item.equipment.purse.purses.PocketPurse;
+import fr.fireowls.apigame.item.equipment.purse.purses.SpruceToothPurse;
+import fr.fireowls.apigame.item.material.MaterialType;
+import fr.fireowls.apigame.item.material.materials.IronIngot;
+import fr.fireowls.apigame.item.material.materials.IronOre;
+import fr.fireowls.apigame.item.material.materials.Leather;
+import fr.fireowls.apigame.item.material.materials.Stone;
+import fr.fireowls.apigame.item.material.materials.Wood;
+import fr.fireowls.apigame.item.utils.HasMaterial;
+import fr.fireowls.apigame.money.Purse;
+import fr.fireowls.apigame.utils.textures.SpriteSheet;
+
+import java.io.File;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import fr.fireowls.mercenaire.scene.ScreenManager;
@@ -17,11 +39,10 @@ public class Mercenaire extends ApplicationAdapter {
 	private Viewport viewport;
 
 	private SpriteBatch batch;
-	private ScreenManager screenManager;
 
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
+		batch = new SpriteBatch()
 		screenManager = new ScreenManager();
 
 		camera = new OrthographicCamera();
