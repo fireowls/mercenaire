@@ -4,20 +4,20 @@
 	"textures": [
 		{
 			"file": "grass-0.png",
-			"frequency": 0.3
+			"frequency": 0.9
 		},
 		{
 			"file": "grass-1.png",
-			"frequency": 0.4
+			"frequency": 0.05
 		},
 		{
 			"file": "grass-2.png",
-			"frequency": 0.3,
+			"frequency": 0.05,
 			"animation": {
-				"delay": 0.5,
+				"delay": 6,
 				"first-frame": 0,
-				"last-frame": 3,
-				"play-mode": "LOOP_REVERSED"
+				"last-frame": 2,
+				"play-mode": "LOOP_RANDOM"
 			}
 		}
 	]

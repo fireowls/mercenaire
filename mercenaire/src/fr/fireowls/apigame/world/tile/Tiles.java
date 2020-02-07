@@ -1,18 +1,18 @@
 package fr.fireowls.apigame.world.tile;
 
-import java.io.File;
-
 public enum Tiles {
 
-    GRASS("grass", "textures/tiles/grass", GrassTile.class);
+    GRASS("grass", "textures/tiles/grass", GrassTile.class),
+    GRAVEL("gravel", "textures/tiles/gravel", GravelTile.class);
+
 
     private String id;
-    private File resources;
+    private String resources;
     private Class<? extends Tile> c;
 
     Tiles(String id, String resources, Class<? extends Tile> c) {
         this.id = id;
-        this.resources = new File(resources);
+        this.resources = resources;
         this.c = c;
     }
 
@@ -20,7 +20,7 @@ public enum Tiles {
         return id;
     }
 
-    public File getResourcesFile() {
+    public String getResources() {
         return resources;
     }
 

@@ -27,6 +27,11 @@ public class ChunkPosition {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        return obj instanceof ChunkPosition && ((ChunkPosition) obj).getX() == x && ((ChunkPosition) obj).getY() == y;
+    }
+
+    @Override
     public String toString() {
         return x+":"+y;
     }

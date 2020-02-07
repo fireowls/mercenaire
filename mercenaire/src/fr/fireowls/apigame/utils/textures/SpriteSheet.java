@@ -23,19 +23,15 @@ public class SpriteSheet {
     private float animationClock;
 
 
-    public SpriteSheet(File resources) {
+    public SpriteSheet(String resources) {
 
         this.selectedTexture = 0;
         this.animationClock = 0;
 
         this.textureInfos = new ArrayList<>();
 
-        if (!resources.getName().equals("texture-info.json")) {
-            resources = new File(resources.getAbsolutePath() + "/texture-info.json");
-        }
-
         JsonReader json = new JsonReader();
-        JsonValue value = json.parse(Gdx.files.internal(resources.getAbsolutePath()));
+        JsonValue value = json.parse(Gdx.files.internal(!resources.endsWith("texture-info.json") ? resources + "/texture-info.json" : resources));
 
         width = value.getInt("width");
         height = value.getInt("height");
@@ -45,7 +41,7 @@ public class SpriteSheet {
 
             String file = textureValue.getString("file");
             double frequency = textureValue.getDouble("frequency");
-            Texture texture = new Texture(Gdx.files.internal(resources.getParent() + "/" + file));
+            Texture texture = new Texture(Gdx.files.internal(resources + "/" + file));
 
             TextureRegion[][] region = TextureRegion.split(texture, width, height);
 
@@ -82,6 +78,14 @@ public class SpriteSheet {
 
     public void update(float delta) {
         this.animationClock += delta;
+    }
+
+    public void dispose() {
+        for (TextureInfo info : textureInfos) {
+            for (TextureRegion region : info.getFrames()) {
+                region.getTexture().dispose();
+            }
+        }
     }
 
     public TextureRegion getTexture() {

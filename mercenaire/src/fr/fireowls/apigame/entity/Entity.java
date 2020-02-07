@@ -1,20 +1,31 @@
 package fr.fireowls.apigame.entity;
 
-import fr.fireowls.apigame.utils.game.GameObject;
+import fr.fireowls.apigame.entity.type.EntityType;
 
-public abstract class Entity extends GameObject {
+public abstract class Entity extends Localizable {
 
-    private EntityMeta entityMeta;
+    protected EntityManager entityManager;
+    protected EntityType type;
 
-    public Entity() {
-
+    public Entity(EntityType type) {
+        this.type = type;
     }
 
-    public EntityMeta getEntityMeta() {
-        return entityMeta;
+    public void kill() {
+        if (entityManager != null) {
+            entityManager.killEntity(this);
+        }
     }
 
-    public void setEntityMeta(EntityMeta entityMeta) {
-        this.entityMeta = entityMeta;
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    public EntityType getType() {
+        return type;
     }
 }

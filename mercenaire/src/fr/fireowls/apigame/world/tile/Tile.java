@@ -4,27 +4,28 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import fr.fireowls.apigame.utils.Location;
 import fr.fireowls.apigame.utils.game.GameObject;
 import fr.fireowls.apigame.utils.textures.SpriteSheet;
+import fr.fireowls.apigame.world.biome.Biome;
 
 import java.io.File;
 
 public abstract class Tile extends GameObject {
 
-    public final static int TILE_SIZE = 128;
+    public final static int TILE_SIZE = 16;
 
     private String id;
     private Tiles type;
-    private File resources;
+    private String resources;
 
     private SpriteSheet spriteSheet;
     private Location location;
+    private Biome biome;
 
     public Tile(Tiles type, Location location) {
         this.id = type.getId();
         this.type = type;
         this.location = location;
-        this.resources = type.getResourcesFile();
+        this.resources = type.getResources();
         this.spriteSheet = new SpriteSheet(resources);
-
     }
 
     @Override
@@ -34,8 +35,7 @@ public abstract class Tile extends GameObject {
 
     @Override
     protected void onDraw(SpriteBatch batch) {
-        batch.draw(spriteSheet.getTexture(), (float) (location.getX() * TILE_SIZE), (float) (location.getY() * TILE_SIZE),
-                (float) TILE_SIZE, (float) TILE_SIZE);
+        batch.draw(spriteSheet.getTexture(), location.getDrawingX(), location.getDrawingY(), (float) TILE_SIZE, (float) TILE_SIZE);
     }
 
 
@@ -43,16 +43,20 @@ public abstract class Tile extends GameObject {
         return id;
     }
 
-    public void setResources(File resources) {
+    public void setResources(String resources) {
         this.resources = resources;
         this.spriteSheet = new SpriteSheet(resources);
+    }
+
+    public void setBiome(Biome biome) {
+        this.biome = biome;
     }
 
     public SpriteSheet getSpriteSheet() {
         return spriteSheet;
     }
 
-    public File getResources() {
+    public String getResources() {
         return resources;
     }
 
@@ -62,5 +66,9 @@ public abstract class Tile extends GameObject {
 
     public Location getLocation() {
         return location;
+    }
+
+    public Biome getBiome() {
+        return biome;
     }
 }

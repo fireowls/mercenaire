@@ -2,26 +2,36 @@ package fr.fireowls.apigame.utils.game;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class GameObject implements Updatable {
 
     private GameObjectState state;
 
-    private OnCreate onCreate;
-    private OnUpdate onUpdate;
-    private OnDraw onDraw;
-    private OnPause onPause;
-    private OnResume onResume;
-    private OnDispose onDispose;
+    private List<OnCreate> onCreate;
+    private List<OnUpdate> onUpdate;
+    private List<OnDraw> onDraw;
+    private List<OnPause> onPause;
+    private List<OnResume> onResume;
+    private List<OnDispose> onDispose;
 
     public GameObject() {
         this.state = GameObjectState.WAITING;
+        onCreate = new ArrayList<>();
+        onUpdate = new ArrayList<>();
+        onDraw = new ArrayList<>();
+        onPause = new ArrayList<>();
+        onResume = new ArrayList<>();
+        onDispose = new ArrayList<>();
     }
 
     @Override
     public void create() {
         if (state == GameObjectState.WAITING) {
             this.state = GameObjectState.RUNNING;
-            this.onCreate.handle();
+            if (onCreate != null)
+                this.onCreate.stream().forEach(OnCreate::handle);
             onCreate();
         }
     }
@@ -31,7 +41,8 @@ public abstract class GameObject implements Updatable {
     @Override
     public void update(float delta) {
         if (state == GameObjectState.RUNNING) {
-            this.onUpdate.handle(delta);
+            if (onUpdate != null)
+                this.onUpdate.stream().forEach(x -> x.handle(delta));
             onUpdate(delta);
         }
     }
@@ -41,7 +52,8 @@ public abstract class GameObject implements Updatable {
     @Override
     public void draw(SpriteBatch batch) {
         if (state == GameObjectState.RUNNING) {
-            this.onDraw.handle(batch);
+            if (onDraw != null)
+                this.onDraw.stream().forEach(x -> x.handle(batch));
             onDraw(batch);
         }
     }
@@ -52,7 +64,8 @@ public abstract class GameObject implements Updatable {
     public void pause() {
         if (state == GameObjectState.RUNNING) {
             this.state = GameObjectState.PAUSE;
-            this.onPause.handle();
+            if (onPause != null)
+                this.onPause.stream().forEach(OnPause::handle);
             onPause();
         }
     }
@@ -63,7 +76,8 @@ public abstract class GameObject implements Updatable {
     public void resume() {
         if (state == GameObjectState.PAUSE) {
             this.state = GameObjectState.RUNNING;
-            this.onResume.handle();
+            if (onResume != null)
+                this.onResume.stream().forEach(OnResume::handle);
             onResume();
         }
     }
@@ -74,7 +88,8 @@ public abstract class GameObject implements Updatable {
     public void dispose() {
         if (state == GameObjectState.RUNNING || state == GameObjectState.PAUSE) {
             this.state = GameObjectState.STOP;
-            this.onDispose.handle();
+            if (onDispose != null)
+                this.onDispose.stream().forEach(OnDispose::handle);
             onDispose();
         }
     }
@@ -82,27 +97,27 @@ public abstract class GameObject implements Updatable {
     protected abstract void onDispose();
 
     public void setOnCreate(OnCreate onCreate) {
-        this.onCreate = onCreate;
+        this.onCreate.add(onCreate);
     }
 
     public void setOnUpdate(OnUpdate onUpdate) {
-        this.onUpdate = onUpdate;
+        this.onUpdate.add(onUpdate);
     }
 
     public void setOnDraw(OnDraw onDraw) {
-        this.onDraw = onDraw;
+        this.onDraw.add(onDraw);
     }
 
     public void setOnPause(OnPause onPause) {
-        this.onPause = onPause;
+        this.onPause.add(onPause);
     }
 
     public void setOnResume(OnResume onResume) {
-        this.onResume = onResume;
+        this.onResume.add(onResume);
     }
 
     public void setOnDispose(OnDispose onDispose) {
-        this.onDispose = onDispose;
+        this.onDispose.add(onDispose);
     }
 
     public GameObjectState getState() {

@@ -14,13 +14,13 @@ public interface Updatable {
     void create();
 
     /**
-     * methode appeler a chaque ticks de jeu.
+     * methode appelé a chaque ticks de jeu.
      * @param delta temps en nano seconde entre maintenant et le precendant apelle de update()
      */
     void update(float delta);
 
     /**
-     * methode appelr après update() pour afficher quelque chose
+     * methode appelé après update() pour afficher quelque chose
      * @param batch SpriteBatch pour afficher a quelque chose a l'ecrant
      */
     void draw(SpriteBatch batch);
