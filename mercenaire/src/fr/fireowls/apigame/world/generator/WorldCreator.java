@@ -38,7 +38,7 @@ public class WorldCreator {
         TileInfo[][] tileInfos = generateInfo(heat, wet, tileFrequency);
         System.out.println("done.");
         World world = new World(name, tileInfos);
-
+        world.create();
         return world;
     }
 

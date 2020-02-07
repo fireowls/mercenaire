@@ -5,10 +5,17 @@ import fr.fireowls.apigame.world.chunk.Chunk;
 import fr.fireowls.apigame.world.chunk.ChunkPosition;
 import fr.fireowls.apigame.world.tile.Tile;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Une location représente une coordonée GPS sur un monde
  */
 public class Location {
+    /**
+     * Liste toutes les location rataché a la Location courante
+     */
+    private List<Location> binded;
 
     /**
      * Le monde dans le quel les coordonnées sont valide
@@ -33,6 +40,7 @@ public class Location {
         this.world = world;
         this.x = x;
         this.y = y;
+        this.binded = new ArrayList<>();
     }
 
     /**
@@ -49,6 +57,7 @@ public class Location {
      */
     public void setWorld(World world) {
         this.world = world;
+        binded.forEach(l -> l.setWorld(world));
     }
 
     /**
@@ -89,6 +98,7 @@ public class Location {
      */
     public void setX(double x) {
         this.x = x;
+        binded.forEach(l -> l.setX(x));
     }
 
     /**
@@ -97,6 +107,54 @@ public class Location {
      */
     public void setY(double y) {
         this.y = y;
+        binded.forEach(l -> l.setY(y));
+    }
+
+    /**
+     * Definir la position x
+     * @param x
+     */
+    public void addX(double x) {
+        this.x += x;
+        binded.forEach(l -> l.addX(x));
+    }
+
+    /**
+     * Definir la position y
+     * @param y
+     */
+    public void addY(double y) {
+        this.y += y;
+        binded.forEach(l -> l.addY(y));
+    }
+
+    public void moveTo(Location location) {
+        moveTo(location.getWorld(), location.getX(), location.getY());
+    }
+
+    public void moveTo(World world, double x, double y) {
+        setWorld(world);
+        setX(x);
+        setY(y);
+    }
+
+    /**
+     * A chaque fois que la location courante sera mis a jour tout ces enfants
+     * seront modifier. Attention aux boucles infini.
+     * @param location location a ajouter
+     * @return true si la Location a pu être ajouté.
+     */
+    public boolean addChild(Location location) {
+        for (Location loc : location.getChild()) {
+            if (loc.equals(this)) {
+                return false;
+            }
+        }
+        return binded.add(location);
+    }
+
+    public List<Location> getChild() {
+        return binded;
     }
 
     public ChunkPosition getChunkPosition() {

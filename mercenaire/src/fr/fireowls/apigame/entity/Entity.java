@@ -1,41 +1,20 @@
 package fr.fireowls.apigame.entity;
 
-import fr.fireowls.apigame.utils.Location;
-import fr.fireowls.apigame.utils.game.GameObject;
-import fr.fireowls.apigame.utils.game.GameObjectState;
+import fr.fireowls.apigame.entity.type.EntityType;
 
-public abstract class Entity extends GameObject {
+public abstract class Entity extends Localizable {
 
-    private Location location;
-    private EntityMeta entityMeta;
-    private EntityManager entityManager;
+    protected EntityManager entityManager;
+    protected EntityType type;
 
-    public Entity(EntityMeta entityMeta, EntityManager entityManager) {
-        this.entityManager = entityManager;
-        this.entityMeta = entityMeta;
+    public Entity(EntityType type) {
+        this.type = type;
     }
 
-    public void destroy() {
-        this.entityManager.removeEntity(this);
-        if (getState() != GameObjectState.STOP) {
-            dispose();
+    public void kill() {
+        if (entityManager != null) {
+            entityManager.killEntity(this);
         }
-    }
-
-    public EntityMeta getEntityMeta() {
-        return entityMeta;
-    }
-
-    public void setEntityMeta(EntityMeta entityMeta) {
-        this.entityMeta = entityMeta;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public Location getLocation() {
-        return location;
     }
 
     public EntityManager getEntityManager() {
@@ -44,5 +23,9 @@ public abstract class Entity extends GameObject {
 
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
+    }
+
+    public EntityType getType() {
+        return type;
     }
 }
